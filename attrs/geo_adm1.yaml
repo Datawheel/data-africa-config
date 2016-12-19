@@ -1,0 +1,24 @@
+global:
+    seperator: ","
+    use_schema: True
+    name: "attrs"
+    filetype: csv
+
+    import_to_db: True
+    add_pks: True
+    # https://drive.google.com/file/d/0B0fngGlnqNt7ZW5lYXRFdC0tWUU/view?usp=sharing
+    web_paths:
+      - url: "https://drive.google.com/uc?export=download&id=0B0fngGlnqNt7ZW5lYXRFdC0tWUU"
+        pattern: "*"
+
+    db_settings:
+      host: 127.0.0.1
+      user: jspeiser
+      password_env_var: XTA
+      db_name: data_africa
+    source : "attrs/adm1.csv"
+    output : "data/output/data-africa/geo_attrs/adm1/"
+
+tables:
+  geo_adm1:
+    pk: ["ADM0_NAME", "ADM1_NAME_ALT", "ISO3", "adm1_id"]

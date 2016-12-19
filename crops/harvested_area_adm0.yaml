@@ -1,0 +1,41 @@
+inherits: ["crops/harvest_base.yaml"]
+
+global:
+    source : "data/source/data-africa/crops/adm0/<crop>.json"
+    output : "data/output/data-africa/crops/adm0/"
+    filetype: json
+    web_paths:
+      - pattern: "*"
+        url: "http://hcapi.harvestchoice.org/ocpu/library/hcapi3/R/hcapi/json"
+        method: POST
+        headers:
+          Content-Type: application/json
+        payload: "{'var' : ['<crop>_h', '<crop>_i_h', '<crop>_r_h'], 'by' : ['ADM0_NAME']}"
+
+
+tables:
+    harvested_area_adm0:
+        pk: ["adm0"]
+
+        transform:
+          - type: agg
+            agg: "sum"
+            pk: ["adm0"]
+          - type: drop
+            column: ["crop"]
+          - type: melt
+            id_vars: ["adm0"]
+            var_name: crop
+            value_name: harvested_area
+          - type: set_val
+            column: year
+            value: 2005
+          - type: join
+            source: "data/source/attrs/adm0_attrs.csv"
+            settings:
+              filetype: csv
+              usecols: ["adm0_id", "ADM0_NAME"]
+            left_on: ["adm0"]
+            right_on: ["ADM0_NAME"]
+          - type: drop
+            column: ["ADM0_NAME"]

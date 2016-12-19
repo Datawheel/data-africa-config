@@ -1,0 +1,712 @@
+ADM0_NAME,ADM1_NAME_ALT,ISO3,adm1_id
+Ivory Coast,18 Montagnes,CIV,0
+Nigeria,Abia,NGA,1
+Cameroon,Adamaoua,CMR,2
+Nigeria,Adamawa,NGA,3
+Ethiopia,Addis Ababa,ETH,4
+Uganda,Adjumani,UGA,5
+British Indian Ocean Territory,Administrative unit not available,IOT,6
+Glorioso Island,Administrative unit not available,ATF,7
+Juan de Nova Island,Administrative unit not available,ATF,8
+Mauritius,Administrative unit not available,MUS,9
+Mayotte,Administrative unit not available,MYT,10
+Mauritania,Adrar,MRT,11
+Ethiopia,Afar,ETH,12
+Seychelles,African Banks,SYC,13
+Niger,Agadez,NER,14
+Ivory Coast,Agneby,CIV,15
+Nigeria,Akwa Ibom,NGA,16
+Sudan,Al Jazeera,SDN,17
+Madagascar,Alaotra Mangoro,MDG,18
+Seychelles,Aldabra,SYC,19
+Djibouti,Ali Sabieh,DJI,20
+Benin,Alibori,BEN,21
+Seychelles,Alphonse,SYC,22
+Ethiopia,Amhara,ETH,23
+Uganda,Amolatar,UGA,24
+Madagascar,Amoron'i Mania,MDG,25
+Uganda,Amuria,UGA,26
+Madagascar,Analamanga,MDG,27
+Madagascar,Analanjirofo,MDG,28
+Nigeria,Anambra,NGA,29
+Madagascar,Androy,MDG,30
+Comoros,Anjouan,COM,31
+Equatorial Guinea,Annobon,GNQ,32
+Madagascar,Anosy,MDG,33
+Eritrea,Anseba,ERI,34
+Uganda,Apac,UGA,35
+Eritrea,Archipelagos,ERI,36
+Malawi,Area under National Administration,MWI,37
+Mozambique,Area under National Administration,MOZ,38
+Seychelles,Aride,SYC,39
+Reunion,Arrondissement_du_vent,REU,40
+Reunion,Arrondissement_souse_le_vent,REU,41
+Uganda,Arua,UGA,42
+United Republic of Tanzania,Arusha,TZA,43
+Saint Helena,Ascension,SHN,44
+Ghana,Ashanti,GHA,45
+Mauritania,Assaba,MRT,46
+Chad,Assongha,TCD,47
+Seychelles,Assumption,SYC,48
+Seychelles,Astove,SYC,49
+Benin,Atakora,BEN,50
+Benin,Atlantique,BEN,51
+Madagascar,Atsimo Andrefana,MDG,52
+Madagascar,Atsimo Atsinanana,MDG,53
+Madagascar,Atsinanana,MDG,54
+Seychelles,Au Cap,SYC,55
+Somalia,Awdal,SOM,56
+Guinea-Bissau,Bafata,GNB,57
+Ivory Coast,Bafing,CIV,58
+Chad,Baguirmi,TCD,59
+Seychelles,Baie Lazare,SYC,60
+Somalia,Bakool,SOM,61
+Mali,Bamako,MLI,62
+Central African Republic,Bamingui-bangora,CAF,63
+Somalia,Banadir,SOM,64
+Democratic Republic of the Congo,Bandundu,COD,65
+Central African Republic,Bangui,CAF,66
+Chad,Barh Koh,TCD,67
+Somalia,Bari,SOM,68
+Chad,Barl El Gazal,TCD,69
+Ivory Coast,Bas Sassandra,CIV,70
+Democratic Republic of the Congo,Bas-Congo,COD,71
+Central African Republic,Basse Kotto,CAF,72
+Chad,Batha Est,TCD,73
+Chad,Batha Ouest,TCD,74
+Nigeria,Bauchi,NGA,75
+Somalia,Bay,SOM,76
+Nigeria,Bayelsa,NGA,77
+Angola,Bengo,AGO,78
+Angola,Benguela,AGO,79
+Ethiopia,Benishangul Gumuz,ETH,80
+Nigeria,Benue,NGA,81
+Lesotho,Berea,LSO,82
+Madagascar,Betsiboka,MDG,83
+Angola,Bie,AGO,84
+Chad,Biltine,TCD,85
+Equatorial Guinea,Bioko Norte,GNQ,86
+Equatorial Guinea,Bioko Sur,GNQ,87
+Guinea-Bissau,Biombo,GNB,88
+Seychelles,Bird,SYC,89
+Mauritius,Black River,MUS,90
+Sudan,Blue Nile,SDN,91
+Cape Verde,Boa Vista,CPV,92
+Madagascar,Boeny,MDG,93
+Guinea,Boke,GIN,94
+Guinea-Bissau,Bolama/bijagos,GNB,95
+Liberia,Bomi,LBR,96
+Liberia,Bong,LBR,97
+Madagascar,Bongolava,MDG,98
+Benin,Borgou,BEN,99
+Chad,Borkou,TCD,100
+Nigeria,Borno,NGA,101
+Burkina Faso,Boucle Du Mouhoun,BFA,102
+Seychelles,Boudeuse,SYC,103
+Congo,Bouenza,COG,104
+Mauritania,Brakna,MRT,105
+Cape Verde,Brava,CPV,106
+Ghana,Brong Ahafo,GHA,107
+Burundi,Bubanza,BDI,108
+Uganda,Bugiri,UGA,109
+Burundi,Bujumbura-Mairie,BDI,110
+Burundi,Bujumbura-Rural,BDI,111
+Uganda,Bukwa,UGA,112
+Zimbabwe,Bulawayo,ZWE,113
+Uganda,Bundibugyo,UGA,114
+Burundi,Bururi,BDI,115
+Uganda,Bushenyi,UGA,116
+Uganda,Busia,UGA,117
+Uganda,Butaleja,UGA,118
+Rwanda,Butare,RWA,119
+Lesotho,Butha Buthe,LSO,120
+Rwanda,Byumba,RWA,121
+Angola,Cabinda,AGO,122
+Mozambique,Cabo Delgado,MOZ,123
+Guinea-Bissau,Cacheu,GNB,124
+Burundi,Cankuzo,BDI,125
+Namibia,Caprivi,NAM,126
+Burkina Faso,Cascades,BFA,127
+Botswana,Central,BWA,128
+Ghana,Central,GHA,129
+Kenya,Central,KEN,130
+Zambia,Central,ZMB,131
+Sudan,Central Equatoria,SDN,132
+Malawi,Central Region,MWI,133
+Gambia,Central River,GMB,134
+Togo,Centrale,TGO,135
+Burkina Faso,Centre,BFA,136
+Cameroon,Centre,CMR,137
+Burkina Faso,Centre-est,BFA,138
+Burkina Faso,Centre-nord,BFA,139
+Burkina Faso,Centre-ouest,BFA,140
+Burkina Faso,Centre-sud,BFA,141
+Equatorial Guinea,Centro Sur,GNQ,142
+Botswana,Chobe,BWA,143
+Burundi,Cibitoke,BDI,144
+Cape Verde,Cima,CPV,145
+Kenya,Coast,KEN,146
+Seychelles,Coetivy,SYC,147
+Benin,Collines,BEN,148
+Guinea,Conakry,GIN,149
+Seychelles,Conception,SYC,150
+Zambia,Copperbelt,ZMB,151
+Seychelles,Cosmoledo,SYC,152
+Benin,Couffo,BEN,153
+Seychelles,Cousin,SYC,154
+Nigeria,Cross River,NGA,155
+Angola,Cuando Cubango,AGO,156
+Angola,Cuanza Sul,AGO,157
+Angola,Cunene,AGO,158
+Congo,Cuvette,COG,159
+Congo,Cuvette Ovest,COG,160
+Rwanda,Cyangugu,RWA,161
+Senegal,Dakar,SEN,162
+Mauritania,Dakhlet Nouadhibou,MRT,163
+United Republic of Tanzania,Dar es Salaam,TZA,164
+Chad,Daraba,TCD,165
+Seychelles,Darros,SYC,166
+Eritrea,Debub,ERI,167
+Eritrea,Debubawi Keih Bahri,ERI,168
+Nigeria,Delta,NGA,169
+Ivory Coast,Denguele,CIV,170
+Seychelles,Denis,SYC,171
+Seychelles,Desnoeufs,SYC,172
+Seychelles,Desroches,SYC,173
+Madagascar,Diana,MDG,174
+Niger,Diffa,NER,175
+Djibouti,Dikhil,DJI,176
+Senegal,Diourbel,SEN,177
+Ethiopia,Dire Dawa,ETH,178
+Djibouti,Djibouti,DJI,179
+United Republic of Tanzania,Dodoma,TZA,180
+Benin,Donga,BEN,181
+Niger,Dosso,NER,182
+Ghana,Eastern,GHA,183
+Kenya,Eastern,KEN,184
+Sierra Leone,Eastern,SLE,185
+Zambia,Eastern,ZMB,186
+South Africa,Eastern Cape,ZAF,187
+Sudan,Eastern Equatoria,SDN,188
+Nigeria,Ebonyi,NGA,189
+Nigeria,Edo,NGA,190
+Nigeria,Ekiti,NGA,191
+Sudan,El Buheyrat,SDN,192
+Chad,Ennedi,TCD,193
+Nigeria,Enugu,NGA,194
+Democratic Republic of the Congo,Equateur,COD,195
+Namibia,Erongo,NAM,196
+Burkina Faso,Est,BFA,197
+Cameroon,Est,CMR,198
+Gabon,Estuaire,GAB,199
+Cameroon,Extreme-Nord,CMR,200
+Nigeria,FCT-Abuja,NGA,201
+Guinea,Faranah,GIN,202
+Seychelles,Farquhar,SYC,203
+Senegal,Fatick,SEN,204
+Seychelles,Felicite,SYC,205
+Mauritius,Flacq,MUS,206
+Cape Verde,Fogo,CPV,207
+South Africa,Free State,ZAF,208
+Seychelles,Fregate,SYC,209
+Ivory Coast,Fromager,CIV,210
+Guinea-Bissau,Gabu,GNB,211
+Sudan,Gadaref,SDN,212
+Somalia,Galgaduud,SOM,213
+Ethiopia,Gambella,ETH,214
+Mali,Gao,MLI,215
+Eritrea,Gash Barka,ERI,216
+South Africa,Gauteng,ZAF,217
+Mozambique,Gaza,MOZ,218
+Liberia,Gbarpolu,LBR,219
+Somalia,Gedo,SOM,220
+Botswana,Ghanzi,BWA,221
+Rwanda,Gikongoro,RWA,222
+Rwanda,Gisenyi,RWA,223
+Rwanda,Gitarama,RWA,224
+Burundi,Gitega,BDI,225
+Seychelles,Glacis,SYC,226
+Nigeria,Gombe,NGA,227
+Mauritania,Gorgol,MRT,228
+Seychelles,Grand Anse Mahe,SYC,229
+Liberia,Grand Bassa,LBR,230
+Liberia,Grand Cape Mount,LBR,231
+Liberia,Grand Gedeh,LBR,232
+Liberia,Grand Kru,LBR,233
+Mauritius,Grand Port,MUS,234
+Ghana,Greater Accra,GHA,235
+Chad,Guera,TCD,236
+Mauritania,Guidimaka,MRT,237
+Uganda,Gulu,UGA,238
+Chad,Hadjer Lamis,TCD,239
+Hala'ib triangle,Hala'ib triangle,XX0,240
+Zimbabwe,Harare,ZWE,241
+Ethiopia,Harari,ETH,242
+Namibia,Hardap,NAM,243
+Gabon,Haut-Ogooue,GAB,244
+Central African Republic,Haut-mboumou,CAF,245
+Ivory Coast,Haut-sassandra,CIV,246
+Madagascar,Haute Matsiatra,MDG,247
+Burkina Faso,Hauts-bassins,BFA,248
+Central African Republic,Hautte-kotto,CAF,249
+Swaziland,Hhohho,SWZ,250
+Somalia,Hiraan,SOM,251
+Mauritania,Hodh Ech Chargui,MRT,252
+Mauritania,Hodh El Gharbi,MRT,253
+Uganda,Hoima,UGA,254
+Angola,Huambo,AGO,255
+Angola,Huila,AGO,256
+Uganda,Ibanda,UGA,257
+Uganda,Iganga,UGA,258
+Madagascar,Ihorombe,MDG,259
+Ilemi triangle,Ilemi triangle,XX2,260
+Cape Verde,Ilheu Branco,CPV,261
+Cape Verde,Ilheu Raso,CPV,262
+Nigeria,Imo,NGA,263
+Mauritania,Inchiri,MRT,264
+Mozambique,Inhambane,MOZ,265
+United Republic of Tanzania,Iringa,TZA,266
+Uganda,Isingiro,UGA,267
+Madagascar,Itasy,MDG,268
+Nigeria,Jigawa,NGA,269
+Uganda,Jinja,UGA,270
+Sudan,Jonglei,SDN,271
+Somalia,Juba Dhexe,SOM,272
+Somalia,Juba Hoose,SOM,273
+Uganda,Kaabong,UGA,274
+Uganda,Kabale,UGA,275
+Uganda,Kabarole,UGA,276
+Uganda,Kaberamaido,UGA,277
+Chad,Kabia,TCD,278
+Nigeria,Kaduna,NGA,279
+United Republic of Tanzania,Kagera,TZA,280
+Uganda,Kalangala,UGA,281
+Uganda,Kaliro,UGA,282
+Uganda,Kampala,UGA,283
+Uganda,Kamuli,UGA,284
+Uganda,Kamwenge,UGA,285
+Chad,Kanem,TCD,286
+Guinea,Kankan,GIN,287
+Nigeria,Kano,NGA,288
+Uganda,Kanungu,UGA,289
+Senegal,Kaolack,SEN,290
+Uganda,Kapchorwa,UGA,291
+Togo,Kara,TGO,292
+Namibia,Karas,NAM,293
+Burundi,Karuzi,BDI,294
+Democratic Republic of the Congo,Kasai-Occidental,COD,295
+Democratic Republic of the Congo,Kasai-Oriental,COD,296
+Uganda,Kasese,UGA,297
+Sudan,Kassala,SDN,298
+Uganda,Katakwi,UGA,299
+Democratic Republic of the Congo,Katanga,COD,300
+Nigeria,Katsina,NGA,301
+Namibia,Kavango,NAM,302
+Burundi,Kayanza,BDI,303
+Mali,Kayes,MLI,304
+Uganda,Kayunga,UGA,305
+Nigeria,Kebbi,NGA,306
+Central African Republic,Kemo,CAF,307
+Botswana,Kgalagadi,BWA,308
+Botswana,Kgatleng,BWA,309
+Sudan,Khartoum,SDN,310
+Namibia,Khomas,NAM,311
+Uganda,Kibaale,UGA,312
+Uganda,Kiboga,UGA,313
+Rwanda,Kibungo,RWA,314
+Rwanda,Kibuye,RWA,315
+Mali,Kidal,MLI,316
+Equatorial Guinea,Kientem,GNQ,317
+Rwanda,Kigali-ngali,RWA,318
+United Republic of Tanzania,Kigoma,TZA,319
+United Republic of Tanzania,Kilimanjaro,TZA,320
+Guinea,Kindia,GIN,321
+Democratic Republic of the Congo,Kinshasa,COD,322
+Uganda,Kiruhura,UGA,323
+Burundi,Kirundo,BDI,324
+Uganda,Kisoro,UGA,325
+Uganda,Kitgum,UGA,326
+Uganda,Koboko,UGA,327
+Nigeria,Kogi,NGA,328
+Senegal,Kolda,SEN,329
+Gambia,Kombo Saint Mary,GMB,330
+Uganda,Kotido,UGA,331
+Congo,Kouilou,COG,332
+Mali,Koulikoro,MLI,333
+Angola,Kuanza Norte,AGO,334
+Uganda,Kumi,UGA,335
+Namibia,Kunene,NAM,336
+Nigeria,Kwara,NGA,337
+South Africa,Kwazulu-natal,ZAF,338
+Botswana,Kweneng,BWA,339
+Uganda,Kyenjojo,UGA,340
+Seychelles,La Digue,SYC,341
+Guinea,Labe,GIN,342
+Chad,Lac,TCD,343
+Chad,Lac Iro,TCD,344
+Ivory Coast,Lacs,CIV,345
+Nigeria,Lagos,NGA,346
+Ivory Coast,Lagunes,CIV,347
+Congo,Lekoumou,COG,348
+Lesotho,Leribe,LSO,349
+Congo,Likouala,COG,350
+United Republic of Tanzania,Lindi,TZA,351
+Uganda,Lira,UGA,352
+Equatorial Guinea,Litoral,GNQ,353
+Benin,Littoral,BEN,354
+Cameroon,Littoral,CMR,355
+Central African Republic,Lobaye,CAF,356
+Liberia,Lofa,LBR,357
+Chad,Logone Occidental,TCD,358
+Chad,Logone Oriental,TCD,359
+Senegal,Louga,SEN,360
+Gambia,Lower River,GMB,361
+Angola,Luanda,AGO,362
+Zambia,Luapula,ZMB,363
+Swaziland,Lubombo,SWZ,364
+Angola,Lunda Norte,AGO,365
+Angola,Lunda Sul,AGO,366
+Zambia,Lusaka,ZMB,367
+Uganda,Luweero,UGA,368
+Ma'tan al-Sarra,Ma'tan al-Sarra,XX1,369
+Eritrea,Maekel,ERI,370
+Lesotho,Mafeteng,LSO,371
+Cape Verde,Maio,CPV,372
+Burundi,Makamba,BDI,373
+Angola,Malanje,AGO,374
+Central African Republic,Mambere-kadei,CAF,375
+Guinea,Mamou,GIN,376
+Uganda,Manafwa,UGA,377
+Chad,Mandoul,TCD,378
+Mozambique,Manica,MOZ,379
+Zimbabwe,Manicaland,ZWE,380
+Democratic Republic of the Congo,Maniema,COD,381
+United Republic of Tanzania,Manyara,TZA,382
+Swaziland,Manzini,SWZ,383
+Mozambique,Maputo,MOZ,384
+Mozambique,Maputo (city),MOZ,385
+United Republic of Tanzania,Mara,TZA,386
+Niger,Maradi,NER,387
+Ivory Coast,Marahoue,CIV,388
+Liberia,Margibi,LBR,389
+Seychelles,Marianne,SYC,390
+Seychelles,Marie-Louise,SYC,391
+Togo,Maritime,TGO,392
+Liberia,Maryland,LBR,393
+Uganda,Masaka,UGA,394
+Lesotho,Maseru,LSO,395
+Zimbabwe,Mashonaland Central,ZWE,396
+Zimbabwe,Mashonaland East,ZWE,397
+Zimbabwe,Mashonaland West,ZWE,398
+Uganda,Masindi,UGA,399
+Zimbabwe,Masvingo,ZWE,400
+Zimbabwe,Matabeleland North,ZWE,401
+Zimbabwe,Matabeleland South,ZWE,402
+Senegal,Matam,SEN,403
+Chad,Mayo-Boneye,TCD,404
+Chad,Mayo-Dala,TCD,405
+Uganda,Mayuge,UGA,406
+Uganda,Mbale,UGA,407
+Uganda,Mbarara,UGA,408
+United Republic of Tanzania,Mbeya,TZA,409
+Central African Republic,Mbomou,CAF,410
+Madagascar,Melaky,MDG,411
+Madagascar,Menabe,MDG,412
+Zimbabwe,Midlands,ZWE,413
+Uganda,Mityana,UGA,414
+Lesotho,Mohale's Hoek,LSO,415
+Comoros,Moheli,COM,416
+Mauritius,Moka,MUS,417
+Lesotho,Mokhotlong,LSO,418
+Benin,Mono,BEN,419
+Chad,Mont De Lam,TCD,420
+Liberia,Montserrado,LBR,421
+Mali,Mopti,MLI,422
+United Republic of Tanzania,Morogoro,TZA,423
+Uganda,Moroto,UGA,424
+Angola,Moxico,AGO,425
+Ivory Coast,Moyen Comoe,CIV,426
+Ivory Coast,Moyen-Cavally,CIV,427
+Gabon,Moyen-Ogooue,GAB,428
+Uganda,Moyo,UGA,429
+Uganda,Mpigi,UGA,430
+South Africa,Mpumalanga,ZAF,431
+United Republic of Tanzania,Mtwara,TZA,432
+Uganda,Mubende,UGA,433
+Somalia,Mudug,SOM,434
+Uganda,Mukono,UGA,435
+Burundi,Muramvya,BDI,436
+Burundi,Muyinga,BDI,437
+United Republic of Tanzania,Mwanza,TZA,438
+Burundi,Mwaro,BDI,439
+Guinea,N'Zerekore,GIN,440
+Ivory Coast,N'zi Comoe,CIV,441
+Kenya,Nairobi,KEN,442
+Uganda,Nakapiripirit,UGA,443
+Uganda,Nakaseke,UGA,444
+Uganda,Nakasongola,UGA,445
+Angola,Namibe,AGO,446
+Mozambique,Nampula,MOZ,447
+Central African Republic,Nana Grebizi,CAF,448
+Central African Republic,Nana Mambere,CAF,449
+Nigeria,Nassarawa,NGA,450
+Uganda,Nebbi,UGA,451
+Botswana,Ngamiland,BWA,452
+Comoros,Ngazidja,COM,453
+Gabon,Ngounie,GAB,454
+Burundi,Ngozi,BDI,455
+Niger,Niamey,NER,456
+Congo,Niari,COG,457
+Mozambique,Niassa,MOZ,458
+Nigeria,Niger,NGA,459
+Sudan,Nile,SDN,460
+Liberia,Nimba,LBR,461
+Burkina Faso,Nord,BFA,462
+Cameroon,Nord,CMR,463
+Democratic Republic of the Congo,Nord-Kivu,COD,464
+Cameroon,Nord-Ouest,CMR,465
+Gambia,North Bank,GMB,466
+Botswana,North East,BWA,467
+Kenya,North Eastern,KEN,468
+Seychelles,North Island,SYC,469
+Zambia,North-Western,ZMB,470
+South Africa,North-west,ZAF,471
+Ghana,Northern,GHA,472
+Sierra Leone,Northern,SLE,473
+Sudan,Northern,SDN,474
+Zambia,Northern,ZMB,475
+Sudan,Northern Bahr El Ghazal,SDN,476
+South Africa,Northern Cape,ZAF,477
+Sudan,Northern Darfur,SDN,478
+Sudan,Northern Kordofan,SDN,479
+South Africa,Northern Province,ZAF,480
+Malawi,Northern Region,MWI,481
+Mauritania,Nouakchott,MRT,482
+Uganda,Ntungamo,UGA,483
+Somalia,Nugaal,SOM,484
+Gabon,Nyanga,GAB,485
+Kenya,Nyanza,KEN,486
+Djibouti,Obock,DJI,487
+Gabon,Ogooue-Ivindo,GAB,488
+Gabon,Ogooue-Maritime,GAB,489
+Gabon,Ogooue-lolo,GAB,490
+Nigeria,Ogun,NGA,491
+Namibia,Ohangwena,NAM,492
+Guinea-Bissau,Oio,GNB,493
+Namibia,Omaheke,NAM,494
+Central African Republic,Ombella-mpoko,CAF,495
+Namibia,Omusati,NAM,496
+Nigeria,Ondo,NGA,497
+Ethiopia,Oromia,ETH,498
+Namibia,Oshana,NAM,499
+Namibia,Oshikoto,NAM,500
+Nigeria,Osun,NGA,501
+Namibia,Otjozondjupa,NAM,502
+Chad,Ouaddai,TCD,503
+Central African Republic,Ouaka,CAF,504
+Benin,Oueme,BEN,505
+Cameroon,Ouest,CMR,506
+Central African Republic,Ouham,CAF,507
+Central African Republic,Ouham-pende,CAF,508
+Nigeria,Oyo,NGA,509
+Uganda,Pader,UGA,510
+Uganda,Pallisa,UGA,511
+Mauritius,Pamplemousses,MUS,512
+United Republic of Tanzania,Pemba North,TZA,513
+United Republic of Tanzania,Pemba South,TZA,514
+Mauritius,Plaines Wilhems,MUS,515
+Benin,Plateau,BEN,516
+Nigeria,Plateau,NGA,517
+Burkina Faso,Plateau Central,BFA,518
+Congo,Plateaux,COG,519
+Togo,Plateaux,TGO,520
+Seychelles,Platte,SYC,521
+Seychelles,Poivre,SYC,522
+Congo,Pool,COG,523
+Seychelles,Port Glaud,SYC,524
+Seychelles,Praslin,SYC,525
+Rwanda,Prefecture De La Ville De Kigali,RWA,526
+Sao Tome and Principe,Principe,STP,527
+Seychelles,Providence,SYC,528
+Democratic Republic of the Congo,Province Orientale,COD,529
+United Republic of Tanzania,Pwani,TZA,530
+Lesotho,Qacha's Nek,LSO,531
+Guinea-Bissau,Quinara,GNB,532
+Lesotho,Quthing,LSO,533
+Uganda,Rakai,UGA,534
+Sudan,Red Sea,SDN,535
+Seychelles,Remire,SYC,536
+Kenya,Rift Valley,KEN,537
+Western Sahara,Rio De Oro,ESH,538
+Liberia,River Ghee,LBR,539
+Liberia,Rivercess,LBR,540
+Nigeria,Rivers,NGA,541
+Mauritius,Riviere Du Rempart,MUS,542
+Cape Verde,Rombo,CPV,543
+Rwanda,Ruhengeri,RWA,544
+Uganda,Rukungiri,UGA,545
+United Republic of Tanzania,Rukwa,TZA,546
+Burundi,Rutana,BDI,547
+United Republic of Tanzania,Ruvuma,TZA,548
+Burundi,Ruyigi,BDI,549
+Ethiopia,SNNP,ETH,550
+Western Sahara,Saguia El Hamra,ESH,551
+Burkina Faso,Sahel,BFA,552
+Saint Helena,Saint Helena,SHN,553
+Senegal,Saint-Louis,SEN,554
+Cape Verde,Sal,CPV,555
+Chad,Salamat,TCD,556
+Somalia,Sanaag,SOM,557
+Congo,Sangha,COG,558
+Central African Republic,Sangha Mbaere,CAF,559
+Cape Verde,Santa Luzia,CPV,560
+Cape Verde,Santiago,CPV,561
+Cape Verde,Santo Antao,CPV,562
+Cape Verde,Sao Nicolau,CPV,563
+Sao Tome and Principe,Sao Tome,STP,564
+Cape Verde,Sao Vicente,CPV,565
+Madagascar,Sava,MDG,566
+Ivory Coast,Savanes,CIV,567
+Togo,Savanes,TGO,568
+Mauritius,Savanne,MUS,569
+Guinea-Bissau,Sector Autonomo De Bissau,GNB,570
+Mali,Segou,MLI,571
+Uganda,Sembabule,UGA,572
+Eritrea,Semenawi Keih Bahri,ERI,573
+Sudan,Sennar,SDN,574
+Somalia,Shabelle Dhexe,SOM,575
+Somalia,Shabelle Hoose,SOM,576
+United Republic of Tanzania,Shinyanga,TZA,577
+Swaziland,Shiselweni,SWZ,578
+Mali,Sikasso,MLI,579
+Chad,Sila,TCD,580
+Seychelles,Silhouette,SYC,581
+United Republic of Tanzania,Singida,TZA,582
+Liberia,Sinoe,LBR,583
+Uganda,Sironko,UGA,584
+Mozambique,Sofala,MOZ,585
+Madagascar,Sofia,MDG,586
+Nigeria,Sokoto,NGA,587
+Ethiopia,Somali,ETH,588
+Somalia,Sool,SOM,589
+Uganda,Soroti,UGA,590
+Botswana,South-East,BWA,591
+Botswana,Southern,BWA,592
+Sierra Leone,Southern,SLE,593
+Zambia,Southern,ZMB,594
+Sudan,Southern Darfur,SDN,595
+Sudan,Southern Kordofan,SDN,596
+Malawi,Southern Region,MWI,597
+Seychelles,St. Francois,SYC,598
+Seychelles,St. Joseph Atoll,SYC,599
+Seychelles,St. Pierre,SYC,600
+Seychelles,Ste Anne,SYC,601
+Cameroon,Sud,CMR,602
+Ivory Coast,Sud Bandama,CIV,603
+Ivory Coast,Sud Comoe,CIV,604
+Democratic Republic of the Congo,Sud-Kivu,COD,605
+Cameroon,Sud-Ouest,CMR,606
+Burkina Faso,Sud-ouest,BFA,607
+United Republic of Tanzania,Tabora,TZA,608
+Djibouti,Tadjourah,DJI,609
+Mauritania,Tagant,MRT,610
+Niger,Tahoua,NER,611
+Seychelles,Takamaka,SYC,612
+Senegal,Tambacounda,SEN,613
+Chad,Tandjile Est,TCD,614
+Chad,Tandjile Ouest,TCD,615
+United Republic of Tanzania,Tanga,TZA,616
+Nigeria,Taraba,NGA,617
+Mozambique,Tete,MOZ,618
+Lesotho,Thaba Tseka,LSO,619
+Senegal,Thies,SEN,620
+Chad,Tibesti,TCD,621
+Ethiopia,Tigray,ETH,622
+Niger,Tillaberi,NER,623
+Mauritania,Tiris Zemmour,MRT,624
+Somalia,Togdheer,SOM,625
+Guinea-Bissau,Tombali,GNB,626
+Mali,Tombouctou,MLI,627
+Uganda,Tororo,UGA,628
+Mauritania,Trarza,MRT,629
+Saint Helena,Tristan Da Cunha,SHN,630
+Angola,Uige,AGO,631
+Rwanda,Umutara,RWA,632
+United Republic of Tanzania,Unguja North,TZA,633
+United Republic of Tanzania,Unguja South,TZA,634
+United Republic of Tanzania,Unguja Urban West,TZA,635
+Sudan,Unity,SDN,636
+Ghana,Upper East,GHA,637
+Sudan,Upper Nile,SDN,638
+Gambia,Upper River,GMB,639
+Ghana,Upper West,GHA,640
+Central African Republic,Vakaga,CAF,641
+Madagascar,Vakinankaratra,MDG,642
+Ivory Coast,Vallee Du Bandama,CIV,643
+Madagascar,Vatovavy Fitovinany,MDG,644
+Ghana,Volta,GHA,645
+Uganda,Wakiso,UGA,646
+Sudan,Warab,SDN,647
+Equatorial Guinea,Welenzas,GNQ,648
+Gambia,Western,GMB,649
+Ghana,Western,GHA,650
+Kenya,Western,KEN,651
+Zambia,Western,ZMB,652
+Sierra Leone,Western Area,SLE,653
+Sudan,Western Bahr El Ghazal,SDN,654
+South Africa,Western Cape,ZAF,655
+Sudan,Western Darfur,SDN,656
+Sudan,Western Equatoria,SDN,657
+Sudan,White Nile,SDN,658
+Gabon,Woleu-Ntem,GAB,659
+Somalia,Woqooyi Galbeed,SOM,660
+Ivory Coast,Worodougou,CIV,661
+Nigeria,Yobe,NGA,662
+Uganda,Yumbe,UGA,663
+Angola,Zaire,AGO,664
+Mozambique,Zambezia,MOZ,665
+Nigeria,Zamfara,NGA,666
+Ivory Coast,Zanzan,CIV,667
+Senegal,Ziguinchor,SEN,668
+Niger,Zinder,NER,669
+Benin,Zou,BEN,670
+Angola,buffer gridcell,AGO,671
+Benin,buffer gridcell,BEN,672
+British Indian Ocean Territory,buffer gridcell,IOT,673
+Cameroon,buffer gridcell,CMR,674
+Cape Verde,buffer gridcell,CPV,675
+Comoros,buffer gridcell,COM,676
+Congo,buffer gridcell,COG,677
+Democratic Republic of the Congo,buffer gridcell,COD,678
+Djibouti,buffer gridcell,DJI,679
+Equatorial Guinea,buffer gridcell,GNQ,680
+Eritrea,buffer gridcell,ERI,681
+Gabon,buffer gridcell,GAB,682
+Gambia,buffer gridcell,GMB,683
+Ghana,buffer gridcell,GHA,684
+Glorioso Island,buffer gridcell,ATF,685
+Guinea,buffer gridcell,GIN,686
+Guinea-Bissau,buffer gridcell,GNB,687
+Ivory Coast,buffer gridcell,CIV,688
+Juan de Nova Island,buffer gridcell,ATF,689
+Kenya,buffer gridcell,KEN,690
+Liberia,buffer gridcell,LBR,691
+Madagascar,buffer gridcell,MDG,692
+Mauritania,buffer gridcell,MRT,693
+Mauritius,buffer gridcell,MUS,694
+Mayotte,buffer gridcell,MYT,695
+Mozambique,buffer gridcell,MOZ,696
+Namibia,buffer gridcell,NAM,697
+Nigeria,buffer gridcell,NGA,698
+Reunion,buffer gridcell,REU,699
+Saint Helena,buffer gridcell,SHN,700
+Sao Tome and Principe,buffer gridcell,STP,701
+Senegal,buffer gridcell,SEN,702
+Seychelles,buffer gridcell,SYC,703
+Sierra Leone,buffer gridcell,SLE,704
+Somalia,buffer gridcell,SOM,705
+South Africa,buffer gridcell,ZAF,706
+Sudan,buffer gridcell,SDN,707
+Togo,buffer gridcell,TGO,708
+United Republic of Tanzania,buffer gridcell,TZA,709
+Western Sahara,buffer gridcell,ESH,710
