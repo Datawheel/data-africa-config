@@ -20,11 +20,11 @@ tables:
         transform:
           - type: agg
             agg: "sum"
-            pk: ["adm0"]
+            pk: ["adm0_name"]
           - type: drop
             column: ["crop"]
           - type: melt
-            id_vars: ["adm0"]
+            id_vars: ["adm0_name"]
             var_name: crop
             value_name: harvested_area
           - type: set_val
@@ -35,7 +35,49 @@ tables:
             settings:
               filetype: csv
               usecols: ["adm0_id", "ADM0_NAME"]
-            left_on: ["adm0"]
+            left_on: ["adm0_name"]
             right_on: ["ADM0_NAME"]
           - type: drop
             column: ["ADM0_NAME"]
+          - type: rename
+            column: adm0_id
+            value: adm0
+          - type: set_val
+            column: water_supply
+            value: "rainfed"
+            where:
+              column: crop
+              func: str.endswith
+              value: "_r_h"
+          - type: set_val
+            column: water_supply
+            value: "irrigated"
+            where:
+              column: crop
+              func: str.endswith
+              value: "_i_h"
+          - type: set_val
+            column: water_supply
+            value: "overall"
+            where:
+              and:
+                - column: crop
+                  func: ~str.endswith
+                  value: "_i_h"
+                - column: crop
+                  func: ~str.endswith
+                  value: "_r_h"
+          - type: replace
+            column: crop
+            target: "_r_h"
+            value: ""
+          - type: replace
+            column: crop
+            target: "_i_h"
+            value: ""
+          - type: replace
+            column: crop
+            target: "_h"
+            value: ""
+          - type: drop
+            column: ["adm0_name"]

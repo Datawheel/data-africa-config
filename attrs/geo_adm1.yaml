@@ -6,7 +6,7 @@ global:
 
     import_to_db: True
     add_pks: True
-    # https://drive.google.com/file/d/0B0fngGlnqNt7ZW5lYXRFdC0tWUU/view?usp=sharing
+
     web_paths:
       - url: "https://drive.google.com/uc?export=download&id=0B0fngGlnqNt7ZW5lYXRFdC0tWUU"
         pattern: "*"

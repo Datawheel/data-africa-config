@@ -4,8 +4,8 @@ global:
     name: "crops"
     filetype: json
     rename:
-      ADM0_NAME: adm0
-      ADM1_NAME_ALT: adm1
+      ADM0_NAME: adm0_name
+      ADM1_NAME_ALT: adm1_name
     source_vars:
         - name: crop
           values:
