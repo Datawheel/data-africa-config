@@ -22,38 +22,16 @@ tables:
         transform:
           - type: agg
             agg: "sum"
-            pk: ["adm0_name", "adm1_name"]
+            pk: ["ADM0_NAME", "ADM1_NAME_ALT"]
           - type: drop
             column: ["crop"]
           - type: melt
-            id_vars: ["adm0_name", "adm1_name"]
+            id_vars: ["ADM0_NAME", "ADM1_NAME_ALT"]
             var_name: crop
             value_name: harvested_area
           - type: set_val
             column: year
             value: 2005
-          - type: join
-            source: "data/source/attrs/adm0_attrs.csv"
-            settings:
-              filetype: csv
-              usecols: ["adm0_id", "ADM0_NAME"]
-            left_on: ["adm0_name"]
-            right_on: ["ADM0_NAME"]
-          - type: drop
-            column: ["ADM0_NAME"]
-          - type: join
-            source: "data/source/attrs/adm1_attrs.csv"
-            settings:
-              filetype: csv
-              usecols: ["adm1_id", "ADM0_NAME", "ADM1_NAME_ALT"]
-            left_on: ["adm0_name", "adm1_name"]
-            right_on: ["ADM0_NAME", "ADM1_NAME_ALT"]
-          - type: drop
-            column: ["adm0_name", "adm1_name", "ADM0_NAME", "ADM1_NAME_ALT"]
-          - type: rename
-            value:
-              adm0_id: adm0
-              adm1_id: adm1
           - type: set_val
             column: water_supply
             value: "rainfed"
@@ -91,3 +69,23 @@ tables:
             column: crop
             target: "_h"
             value: ""
+          - type: join
+            source: "data/source/attrs/adm0_attrs.csv"
+            settings:
+              filetype: csv
+              usecols: ["adm0_id", "ADM0_NAME"]
+            left_on: ["ADM0_NAME"]
+            right_on: ["ADM0_NAME"]
+          - type: join
+            source: "data/source/attrs/adm1_attrs.csv"
+            settings:
+              filetype: csv
+              usecols: ["adm1_id", "ADM0_NAME", "ADM1_NAME_ALT"]
+            left_on: ["ADM0_NAME", "ADM1_NAME_ALT"]
+            right_on: ["ADM0_NAME", "ADM1_NAME_ALT"]
+          - type: drop
+            column: ["ADM0_NAME", "ADM1_NAME_ALT"]
+          - type: rename
+            value:
+              adm0_id: adm0
+              adm1_id: adm1
