@@ -1,8 +1,8 @@
-inherits: ["crops/harvest_base.yaml"]
+inherits: ["crops/crop_val_base.yaml"]
 
 global:
-    source : "data/source/data-africa/crops/adm0/<crop>.json"
-    output : "data/output/data-africa/crops/adm0/"
+    source : "data/source/data-africa/crops/adm0/value/<crop>.json"
+    output : "data/output/data-africa/crops/adm0/value/"
     filetype: json
     web_paths:
       - url: "https://drive.google.com/uc?export=download&id=0B0fngGlnqNt7a1U0QTM4RDFIMnM"
@@ -14,12 +14,12 @@ global:
         method: POST
         headers:
           Content-Type: application/json
-        payload: "{'var' : ['<crop>_h', '<crop>_i_h', '<crop>_r_h'], 'by' : ['ADM0_NAME']}"
+        payload: "{'var' : ['<crop>_v'], 'by' : ['ADM0_NAME']}"
 
 
 tables:
-    harvested_area:
-        pk: ["geo"]
+    value_production:
+        pk: ["adm0"]
 
         transform:
           - type: agg
@@ -30,47 +30,22 @@ tables:
           - type: melt
             id_vars: ["ADM0_NAME"]
             var_name: crop
-            value_name: harvested_area
+            value_name: value_of_production
+          - type: replace
+            column: crop
+            target: "_r_v"
+            value: ""
+          - type: replace
+            column: crop
+            target: "_i_v"
+            value: ""
+          - type: replace
+            column: crop
+            target: "_v"
+            value: ""
           - type: set_val
             column: year
             value: 2005
-          - type: set_val
-            column: water_supply
-            value: "rainfed"
-            where:
-              column: crop
-              func: str.endswith
-              value: "_r_h"
-          - type: set_val
-            column: water_supply
-            value: "irrigated"
-            where:
-              column: crop
-              func: str.endswith
-              value: "_i_h"
-          - type: set_val
-            column: water_supply
-            value: "overall"
-            where:
-              and:
-                - column: crop
-                  func: ~str.endswith
-                  value: "_i_h"
-                - column: crop
-                  func: ~str.endswith
-                  value: "_r_h"
-          - type: replace
-            column: crop
-            target: "_r_h"
-            value: ""
-          - type: replace
-            column: crop
-            target: "_i_h"
-            value: ""
-          - type: replace
-            column: crop
-            target: "_h"
-            value: ""
           - type: join
             source: "data/source/attrs/adm0_attrs.csv"
             settings:

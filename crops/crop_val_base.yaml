@@ -1,0 +1,67 @@
+global:
+    seperator: ","
+    use_schema: True
+    name: "crops"
+    filetype: json
+
+    source_vars:
+        - name: crop
+          values:
+            - acof
+            - bana
+            - bapl
+            - barl
+            - bean
+            - cass
+            - cere
+            - chic
+            - cnut
+            - coco
+            - coff
+            - cott
+            - cowp
+            - frui
+            - grou
+            - lent
+            - maiz
+            - mill
+            - ocer
+            - ofib
+            - oilp
+            - ooil
+            - opul
+            - orts
+            - pige
+            - plnt
+            - pmil
+            - pota
+            - puls
+            - rape
+            - rcof
+            - rest
+            - rice
+            - sesa
+            - smil
+            - sorg
+            - soyb
+            - sugc
+            - sunf
+            - swpo
+            - teas
+            - temf
+            - toba
+            - trof
+            - vege
+            - whea
+            - yams
+
+    import_to_db: True
+    add_pks: True
+
+    db_settings:
+      host: 127.0.0.1
+      user: jspeiser
+      password_env_var: XTA
+      db_name: data_africa
+      type:
+        value_of_production: bigint

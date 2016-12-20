@@ -16,8 +16,8 @@ global:
         payload: "{'var' : ['<crop>_h', '<crop>_i_h', '<crop>_r_h'], 'by' : ['ADM0_NAME', 'ADM1_NAME_ALT']}"
 
 tables:
-    harvested_area_adm1:
-        pk: ["adm0", "adm1"]
+    harvested_area:
+        pk: ["geo"]
 
         transform:
           - type: agg
@@ -89,3 +89,18 @@ tables:
             value:
               adm0_id: adm0
               adm1_id: adm1
+          - type: zfill
+            column: adm0
+            size: 3
+          - type: zfill
+            column: adm1
+            size: 3
+          - column: adm0
+            type: concat_and_fill
+            prefix: "050AF"
+          - column: geo
+            type: concat
+            column0: adm0
+            column1: adm1
+          - type: drop
+            column: ["adm0", "adm1"]
