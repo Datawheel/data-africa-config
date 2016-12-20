@@ -8,17 +8,54 @@ global:
     add_pks: True
 
     web_paths:
+      - url: "https://drive.google.com/uc?export=download&id=0B0fngGlnqNt7a1U0QTM4RDFIMnM"
+        pattern: "adm0_attrs.csv"
       - url: "https://drive.google.com/uc?export=download&id=0B0fngGlnqNt7ZW5lYXRFdC0tWUU"
-        pattern: "*"
+        pattern: "adm1_attrs.csv"
 
     db_settings:
       host: 127.0.0.1
       user: jspeiser
       password_env_var: XTA
       db_name: data_africa
-    source : "attrs/adm1.csv"
+    source : "attrs/adm1_attrs.csv"
     output : "data/output/data-africa/geo_attrs/adm1/"
 
+    rename:
+      ADM1_NAME_ALT: name
+      ISO3: iso3
 tables:
-  geo_adm1:
-    pk: ["ADM0_NAME", "ADM1_NAME_ALT", "ISO3", "adm1_id"]
+  geo:
+    pk: ["id", "name", "iso3"]
+
+    transform:
+      - type: join
+        source: "data/source/attrs/adm0_attrs.csv"
+        settings:
+          filetype: csv
+          usecols: ["adm0_id", "ADM0_NAME"]
+        on: ["ADM0_NAME"]
+      - type: clone
+        source: adm0_id
+        column: id
+      - type: zfill
+        column: id
+        size: 3
+      - column: id
+        type: concat_and_fill
+        prefix: "050AF"
+      - type: clone
+        source: adm1_id
+        column: tmp
+      - type: zfill
+        column: tmp
+        size: 3
+      - type: concat
+        column: id
+        column0: id
+        column1: tmp
+      - type: drop
+        column: ["ADM0_NAME", "tmp"]
+      - type: set_val
+        column: level
+        value: "adm1"
