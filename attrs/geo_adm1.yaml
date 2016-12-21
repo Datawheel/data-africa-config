@@ -1,3 +1,5 @@
+inherits: ['db.yaml']
+
 global:
     seperator: ","
     use_schema: True
@@ -14,11 +16,12 @@ global:
         pattern: "adm1_attrs.csv"
 
     db_settings:
-      host: 127.0.0.1
-      user: jspeiser
-      password_env_var: XTA
+      host: 35.185.5.78
+      user: postgres
+      password_env_var: DA_DB_PW
       db_name: data_africa
-    source : "attrs/adm1_attrs.csv"
+
+    source : "data/attrs/adm1_attrs.csv"
     output : "data/output/data-africa/geo_attrs/adm1/"
 
     rename:

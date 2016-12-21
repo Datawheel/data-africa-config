@@ -1,3 +1,5 @@
+inherits: ['db.yaml']
+
 global:
     seperator: ","
     use_schema: True
@@ -11,12 +13,7 @@ global:
       - url: "https://drive.google.com/uc?export=download&id=0B0fngGlnqNt7a1U0QTM4RDFIMnM"
         pattern: "*"
 
-    db_settings:
-      host: 127.0.0.1
-      user: jspeiser
-      password_env_var: XTA
-      db_name: data_africa
-    source : "attrs/adm0.csv"
+    source : "data/attrs/adm0.csv"
     output : "data/output/data-africa/geo_attrs/adm0/"
 
     rename:

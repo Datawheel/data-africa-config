@@ -1,0 +1,20 @@
+inherits: ['db.yaml']
+
+global:
+    seperator: ","
+    use_schema: True
+    name: "attrs"
+    filetype: csv
+
+    add_pks: True
+
+    web_paths:
+      - url: https://drive.google.com/uc?export=download&id=0B0fngGlnqNt7VWRwRVcwbDY4Qjg
+        pattern: "*"
+
+    source : "data/attrs/attr_ws.csv"
+    output : "data/output/data-africa/ws_attrs/"
+
+tables:
+  water_supply:
+    pk: ["id"]
