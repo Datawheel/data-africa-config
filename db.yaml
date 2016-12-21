@@ -5,3 +5,5 @@ global:
       user: postgres
       password_env_var: DA_DB_PW
       db_name: data_africa
+      type:
+        value_of_production: bigint

@@ -1,4 +1,4 @@
-inherits: ["crops/crop_val_base.yaml"]
+inherits: ["db.yaml", "crops/crop_val_base.yaml"]
 
 global:
     source : "data/source/data-africa/crops/adm0/value/<crop>.json"
