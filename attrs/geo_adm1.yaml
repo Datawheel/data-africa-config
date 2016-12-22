@@ -10,40 +10,27 @@ global:
     add_pks: True
 
     web_paths:
-      - url: "https://drive.google.com/uc?export=download&id=0B0fngGlnqNt7a1U0QTM4RDFIMnM"
-        pattern: "adm0_attrs.csv"
-      - url: "https://drive.google.com/uc?export=download&id=0B0fngGlnqNt7ZW5lYXRFdC0tWUU"
+      - url: https://drive.google.com/uc?export=download&id=0B0fngGlnqNt7bFN1dnhoRnRuT1k
         pattern: "adm1_attrs.csv"
-
-    db_settings:
-      host: 35.185.5.78
-      user: postgres
-      password_env_var: DA_DB_PW
-      db_name: data_africa
 
     source : "data/attrs/adm1_attrs.csv"
     output : "data/output/data-africa/geo_attrs/adm1/"
 
     rename:
-      ADM1_NAME_ALT: name
-      ISO3: iso3
+      adm1_name: name
+      adm0_code: adm0_id
+      adm1_code: adm1_id
 tables:
   geo:
     pk: ["id", "name", "iso3"]
 
     transform:
-      - type: join
-        source: "data/source/attrs/adm0_attrs.csv"
-        settings:
-          filetype: csv
-          usecols: ["adm0_id", "ADM0_NAME"]
-        on: ["ADM0_NAME"]
       - type: clone
         source: adm0_id
         column: id
       - type: zfill
         column: id
-        size: 3
+        size: 5
       - column: id
         type: concat_and_fill
         prefix: "050AF"
@@ -52,13 +39,13 @@ tables:
         column: tmp
       - type: zfill
         column: tmp
-        size: 3
+        size: 5
       - type: concat
         column: id
         column0: id
         column1: tmp
       - type: drop
-        column: ["ADM0_NAME", "tmp"]
+        column: ["adm0_name", "tmp"]
       - type: set_val
         column: level
         value: "adm1"

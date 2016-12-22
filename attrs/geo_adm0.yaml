@@ -7,21 +7,21 @@ global:
     filetype: csv
 
     import_to_db: True
-    add_pks: True
 
     web_paths:
-      - url: "https://drive.google.com/uc?export=download&id=0B0fngGlnqNt7a1U0QTM4RDFIMnM"
+      - url: "https://drive.google.com/uc?export=download&id=0B0fngGlnqNt7UElwVlRjcTctN2c"
         pattern: "*"
 
     source : "data/attrs/adm0.csv"
     output : "data/output/data-africa/geo_attrs/adm0/"
 
     rename:
-      ISO3: iso3
-      ADM0_NAME: name
+      adm0_name: name
+      adm0_code: adm0_id
+
 tables:
   geo:
-    pk: ["id", "name", "iso3"]
+    pk: ["id", "name"]
 
     transform:
       - type: clone
@@ -29,7 +29,7 @@ tables:
         column: id
       - type: zfill
         column: id
-        size: 3
+        size: 5
       - column: id
         type: concat_and_fill
         prefix: "040AF"
