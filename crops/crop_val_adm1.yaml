@@ -1,13 +1,12 @@
 inherits: ["db.yaml", "crops/crop_val_base.yaml"]
 
 global:
+    add_pks: True
     source : "data/source/data-africa/crops/adm1/value/<crop>.json"
     output : "data/output/data-africa/crops/adm1/value/"
     filetype: json
     web_paths:
-      - url: "https://drive.google.com/uc?export=download&id=0B0fngGlnqNt7a1U0QTM4RDFIMnM"
-        pattern: "adm0_attrs.csv"
-      - url: "https://drive.google.com/uc?export=download&id=0B0fngGlnqNt7ZW5lYXRFdC0tWUU"
+      - url: https://drive.google.com/uc?export=download&id=0B0fngGlnqNt7bFN1dnhoRnRuT1k
         pattern: "adm1_attrs.csv"
       - pattern: "*"
         url: "http://hcapi.harvestchoice.org/ocpu/library/hcapi3/R/hcapi/json"
@@ -47,31 +46,24 @@ tables:
             target: "_v"
             value: ""
           - type: join
-            source: "data/source/attrs/adm0_attrs.csv"
-            settings:
-              filetype: csv
-              usecols: ["adm0_id", "ADM0_NAME"]
-            left_on: ["ADM0_NAME"]
-            right_on: ["ADM0_NAME"]
-          - type: join
             source: "data/source/attrs/adm1_attrs.csv"
             settings:
               filetype: csv
-              usecols: ["adm1_id", "ADM0_NAME", "ADM1_NAME_ALT"]
+              usecols: ["adm0_code", "adm0_name", "adm1_code", "adm1_name"]
             left_on: ["ADM0_NAME", "ADM1_NAME_ALT"]
-            right_on: ["ADM0_NAME", "ADM1_NAME_ALT"]
+            right_on: ["adm0_name", "adm1_name"]
           - type: drop
-            column: ["ADM0_NAME", "ADM1_NAME_ALT"]
+            column: ["ADM0_NAME", "ADM1_NAME_ALT", "adm0_name", "adm1_name"]
           - type: rename
             value:
-              adm0_id: adm0
-              adm1_id: adm1
+              adm0_code: adm0
+              adm1_code: adm1
           - type: zfill
             column: adm0
-            size: 3
+            size: 5
           - type: zfill
             column: adm1
-            size: 3
+            size: 5
           - column: adm0
             type: concat_and_fill
             prefix: "050AF"
