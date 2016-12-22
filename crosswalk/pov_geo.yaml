@@ -1,0 +1,54 @@
+inherits: ['db.yaml']
+
+global:
+    seperator: ","
+    use_schema: True
+    name: "crosswalk"
+    filetype: csv
+    decimal: .
+    web_paths:
+      - url: https://drive.google.com/uc?export=download&id=0B0fngGlnqNt7akl2VXdUNThrMUE
+        pattern: "*"
+
+    source : "data/attrs/pov_geo_crosswalk.csv"
+    output : "data/output/data-africa/pov_geo_crosswalk/"
+
+tables:
+  pov_geo:
+    pk: ["pov_geo", "geo"]
+
+    transform:
+      - type: cast
+        column: ADM1_CODE
+        as: int
+      - type: cast
+        column: svyL1Cd
+        as: int
+      - type: cast
+        column: ADM0_CODE
+        as: int
+      - type: concat
+        column: pov_geo
+        column0: ISO3
+        column1: svyL1Cd
+      - type: clone
+        source: ADM0_CODE
+        column: geo
+      - type: zfill
+        column: geo
+        size: 3
+      - column: geo
+        type: concat_and_fill
+        prefix: "050AF"
+      - type: clone
+        source: ADM1_CODE
+        column: tmp
+      - type: zfill
+        column: tmp
+        size: 3
+      - type: concat
+        column: geo
+        column0: geo
+        column1: tmp
+      - type: drop
+        column: ["Unnamed: 0", "tmp"]
