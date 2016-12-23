@@ -9,6 +9,11 @@ global:
     import_to_db: True
 
     web_paths:
+      - url: "http://hcapi.harvestchoice.org/ocpu/library/hcapi3/R/hcapi/json"
+        pattern: "adm0_iso3.json"
+        headers:
+          Content-Type: "application/json"
+        payload: '{"var" : ["ISO3"], "by" : ["ISO3", "ADM0_CODE", "ADM0_NAME"]}'
       - url: "https://drive.google.com/uc?export=download&id=0B0fngGlnqNt7UElwVlRjcTctN2c"
         pattern: "*"
 
@@ -24,6 +29,13 @@ tables:
     pk: ["id", "name"]
 
     transform:
+      - type: join
+        source: "data/source/attrs/adm0_iso3.json"
+        settings:
+          filetype: json
+          usecols: ["ADM0_CODE", "ADM0_NAME", "ISO3"]
+        left_on: ["name", "adm0_id"]
+        right_on: ["ADM0_NAME", "ADM0_CODE"]
       - type: clone
         source: adm0_id
         column: id
@@ -39,3 +51,8 @@ tables:
       - type: set_val
         column: level
         value: "adm0"
+      - type: rename
+        column: ISO3
+        value: iso3
+      - type: drop
+        column: ['ISO3.1', 'ADM0_NAME', 'ADM0_CODE']
