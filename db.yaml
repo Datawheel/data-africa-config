@@ -7,3 +7,5 @@ global:
       db_name: data_africa
       type:
         value_of_production: bigint
+        adm0_id: integer
+        adm1_id: integer
