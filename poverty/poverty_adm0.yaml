@@ -1,0 +1,34 @@
+inherits: ['db.yaml']
+
+global:
+    seperator: ","
+    use_schema: True
+    name: "poverty"
+    filetype: csv
+
+    web_paths:
+      - url: https://drive.google.com/uc?export=download&id=0B0fngGlnqNt7WkxOM0NOTWVrNDg
+        pattern: "*"
+
+    source : "data/poverty/poverty_adm0.csv"
+    output : "data/output/poverty/adm0"
+    rename:
+      gini_country: gini
+      ISO3: iso3
+      svyL1Cd: svyl1cd
+
+tables:
+  survey:
+    pk: ["year", "poverty_geo"]
+
+    transform:
+      - type: set_val
+        column: poverty_geo
+        value: 040PG
+        pos: 1
+      - column: poverty_geo
+        type: concat
+        column0: poverty_geo
+        column1: iso3
+      - type: drop
+        column: ["iso3", "country", "row_id"]
