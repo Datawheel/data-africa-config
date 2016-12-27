@@ -57,7 +57,6 @@ tables:
         column: parent_adm0
         column0: parent_adm0
         column1: iso3
-      # - type: replace
-      #   column: name
-      #   target: "_"
-      #   value: " "
+      - type: set_val
+        column: level
+        value: "adm1"

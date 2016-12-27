@@ -45,3 +45,6 @@ tables:
       - type: set_val
         column: parent_adm0
         value: !!null
+      - type: set_val
+        column: level
+        value: "adm0"
