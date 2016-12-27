@@ -25,7 +25,6 @@ tables:
       - type: set_val
         column: poverty_geo
         value: 040PG
-        pos: 1
       - column: poverty_geo
         type: concat
         column0: poverty_geo
