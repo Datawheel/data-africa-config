@@ -1,0 +1,63 @@
+inherits: ['db.yaml']
+
+global:
+    seperator: ","
+    use_schema: True
+    name: "attrs"
+    filetype: csv
+    encoding: !!null
+    web_paths:
+      - url: https://drive.google.com/uc?export=download&id=0B0fngGlnqNt7Qm0zNUs5VjJUbDg
+        pattern: "*"
+
+    source : "data/poverty/attrs/geopoverty_adm1.csv"
+    output : "data/output/attrs/geopoverty/adm1"
+    rename:
+      gini_country: gini
+      ISO3: iso3
+      name: country_name
+      svyL1Nm: good_name
+      svyL1Cd: svyl1cd
+
+tables:
+  poverty_geo:
+    pk: ["id", "name"]
+
+    transform:
+      - type: set_val
+        column: id
+        value: 050PG
+      - type: clone
+        column: tmp_svyl1cd
+        source: svyl1cd
+      - type: zfill
+        column: tmp_svyl1cd
+        size: 5
+      - type: set_val
+        column: poverty_geo
+        value: 050PG
+      - column: id
+        type: concat
+        column0: id
+        column1: iso3
+        column2: tmp_svyl1cd
+      - type: rename
+        column: good_name
+        value: name
+      - type: agg
+        pk: ["id", "iso3", "name", "svyl1cd"]
+        agg:
+          year: sum
+      - type: drop
+        column: "year"
+      - type: set_val
+        column: parent_adm0
+        value: "040PG"
+      - type: concat
+        column: parent_adm0
+        column0: parent_adm0
+        column1: iso3
+      # - type: replace
+      #   column: name
+      #   target: "_"
+      #   value: " "
