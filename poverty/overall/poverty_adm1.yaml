@@ -1,6 +1,7 @@
 inherits: ['db.yaml']
 
 global:
+    decimal: .
     seperator: ","
     use_schema: True
     name: "poverty"
