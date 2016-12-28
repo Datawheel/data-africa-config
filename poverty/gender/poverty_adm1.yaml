@@ -16,7 +16,7 @@ global:
       ISO3: iso3
       svyL1Cd: svyl1cd
       hh_female: gender
-
+      gini_fem: gini
 
 tables:
   survey_by_gender:

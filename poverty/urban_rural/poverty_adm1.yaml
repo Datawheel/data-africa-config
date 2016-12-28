@@ -15,6 +15,7 @@ global:
     rename:
       ISO3: iso3
       svyL1Cd: svyl1cd
+      gini_rur: gini
 
 tables:
   survey_urban_rural:
