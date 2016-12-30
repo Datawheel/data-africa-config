@@ -1,0 +1,39 @@
+inherits: ['db.yaml']
+
+global:
+    seperator: ","
+    use_schema: True
+    name: "poverty"
+    filetype: dta
+    encoding: !!null
+    web_paths:
+      - url: https://drive.google.com/uc?export=download&id=0B0fngGlnqNt7NXJoUnFpZi1KZXc
+        pattern: "*"
+    decimal: .
+    source : "data/poverty/gender/adm0.dta"
+    output : "data/output/poverty/gender/adm0"
+    type:
+      hh_female: str
+    rename:
+      ISO3: iso3
+      hh_female: gender
+      gini_country: gini
+
+tables:
+  survey_by_gender:
+    pk: ["year", "poverty_geo", "gender"]
+
+    transform:
+      - type: cast
+        column: year
+        as: int
+      - type: set_val
+        column: poverty_geo
+        value: 040PG
+        pos: 1
+      - column: poverty_geo
+        type: concat
+        column0: poverty_geo
+        column1: iso3
+      - type: drop
+        column: ["iso3", "country"]
