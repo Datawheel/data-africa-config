@@ -36,7 +36,7 @@ tables:
         value: hv024
       - type: set_val
         column: dhs_geo
-        value: 040HG
+        value: 050HG
       - type: zfill
         column: regcode
         size: 3
