@@ -1,0 +1,57 @@
+inherits: ['db.yaml']
+
+global:
+    use_schema: True
+    name: "climate"
+    filetype: excel
+    sheetname: "Rainfall Data"
+    encoding: !!null
+    web_paths:
+      - url: "http://hcapi.harvestchoice.org/ocpu/library/hcapi3/R/hcapi/json"
+        pattern: "adm1_iso3.json"
+        headers:
+            Content-Type: "application/json"
+        payload: '{"var" : ["ADM0_CODE", "ADM1_CODE_ALT"], "by" : ["ISO3", "ADM0_NAME", "ADM1_NAME_ALT"]}'
+      - url: https://drive.google.com/uc?export=download&id=0B0fngGlnqNt7c1JiNlM5cWRXUVU
+        pattern: "*"
+    decimal: .
+    source: "data/climate/rainfall.xlsx"
+    output: "data/output/climate/rainfall/adm1"
+    add_pks: True
+
+    # rename:
+      # end_year: year
+tables:
+  rainfall:
+      pk: ["geo"]
+      transform:
+        - type: join
+          source: "data/source/attrs/adm1_iso3.json"
+          settings:
+            filetype: json
+          left_on: ["ISO3", "name_adm1"]
+          right_on: ["ISO3", "ADM1_NAME_ALT"]
+        - type: clone
+          source: ADM0_CODE
+          column: geo
+        - type: zfill
+          column: geo
+          size: 5
+        - column: geo
+          type: concat_and_fill
+          prefix: "050AF"
+        - type: clone
+          source: ADM1_CODE_ALT
+          column: tmp
+        - type: zfill
+          column: tmp
+          size: 5
+        - type: concat
+          column: geo
+          column0: geo
+          column1: tmp
+        - type: rename
+          column: ISO3
+          value: iso3
+        - type: drop
+          column: ['name_adm1', 'ISO3.1', 'ADM1_CODE_ALT', 'ADM1_NAME_ALT', 'ADM0_CODE', 'tmp', 'iso3', 'name_adm0']
