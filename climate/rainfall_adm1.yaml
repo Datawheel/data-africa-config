@@ -19,14 +19,12 @@ global:
     output: "data/output/climate/rainfall/adm1"
     add_pks: True
 
-    # rename:
-      # end_year: year
 tables:
   rainfall:
       pk: ["geo"]
       transform:
         - type: join
-          source: "data/source/attrs/adm1_iso3.json"
+          source: "data/source/attrs/climate/adm1_iso3.json"
           settings:
             filetype: json
           left_on: ["ISO3", "name_adm1"]
