@@ -6,8 +6,8 @@ global:
     filetype: excel
     sheetname: Indicator Data
     web_paths:
-      - url: "https://drive.google.com/uc?export=download&id=0B0fngGlnqNt7UElwVlRjcTctN2c"
-        pattern: "adm0_attrs.csv"
+      - url: "https://drive.google.com/uc?export=download&id=0B0fngGlnqNt7Rm0wcGdXN2YybTA"
+        pattern: "adm0_iso2.csv"
       - url: https://drive.google.com/uc?export=download&id=0B0fngGlnqNt7ckZ1XzM5NU9XcUk
         pattern: "*"
 
@@ -41,22 +41,19 @@ tables:
       - type: plugin
         func: data_africa.plugins.dhs.convert_survey
       - type: join
-        source: "data/source/attrs/health/geo/adm0_attrs.csv"
+        source: "data/source/attrs/health/geo/adm0_iso2.csv"
         settings:
-          usecols: ["adm0_name", "adm0_code"]
+          usecols: ["Common Name", "ISO 3166-1 2 Letter Code"]
         left_on: ["Country"]
-        right_on: ["adm0_name"]
+        right_on: ["Common Name"]
       - type: clone
-        source: adm0_code
-        column: geo
-      - type: zfill
-        column: geo
-        size: 5
-      - column: geo
+        column: dhs_geo
+        source: ISO 3166-1 2 Letter Code
+      - column: dhs_geo
         type: concat_and_fill
-        prefix: "040AF"
+        prefix: "040HG"
       - type: drop
-        column: [Survey, adm0_name, adm0_code, Country]
+        column: [Survey, Country, ISO 3166-1 2 Letter Code, Common Name]
       - type: div
         column: proportion_of_children
         value: 100
@@ -83,25 +80,22 @@ tables:
       - type: plugin
         func: data_africa.plugins.dhs.convert_survey
       - type: join
-        source: "data/source/attrs/health/geo/adm0_attrs.csv"
+        source: "data/source/attrs/health/geo/adm0_iso2.csv"
         settings:
-          usecols: ["adm0_name", "adm0_code"]
+          usecols: ["Common Name", "ISO 3166-1 2 Letter Code"]
         left_on: ["Country"]
-        right_on: ["adm0_name"]
+        right_on: ["Common Name"]
       - type: clone
-        source: adm0_code
-        column: geo
-      - type: zfill
-        column: geo
-        size: 5
-      - column: geo
+        column: dhs_geo
+        source: ISO 3166-1 2 Letter Code
+      - column: dhs_geo
         type: concat_and_fill
-        prefix: "040AF"
+        prefix: "040HG"
       - type: div
         column: proportion_of_children
         value: 100
       - type: drop
-        column: [Survey, adm0_name, adm0_code, Country, Characteristic]
+        column: [Survey, Country, ISO 3166-1 2 Letter Code, Common Name, Characteristic]
 
   conditions_residence:
     pk: ["year", "geo", "condition", "severity", "residence"]
@@ -125,22 +119,19 @@ tables:
       - type: plugin
         func: data_africa.plugins.dhs.convert_survey
       - type: join
-        source: "data/source/attrs/health/geo/adm0_attrs.csv"
+        source: "data/source/attrs/health/geo/adm0_iso2.csv"
         settings:
-          usecols: ["adm0_name", "adm0_code"]
+          usecols: ["Common Name", "ISO 3166-1 2 Letter Code"]
         left_on: ["Country"]
-        right_on: ["adm0_name"]
+        right_on: ["Common Name"]
       - type: clone
-        source: adm0_code
-        column: geo
-      - type: zfill
-        column: geo
-        size: 5
-      - column: geo
+        column: dhs_geo
+        source: ISO 3166-1 2 Letter Code
+      - column: dhs_geo
         type: concat_and_fill
-        prefix: "040AF"
+        prefix: "040HG"
       - type: div
         column: proportion_of_children
         value: 100
       - type: drop
-        column: [Survey, adm0_name, adm0_code, Country, Characteristic]
+        column: [Survey, Country, ISO 3166-1 2 Letter Code, Common Name, Characteristic]
