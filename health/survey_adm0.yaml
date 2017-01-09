@@ -15,9 +15,6 @@ global:
     output: "data/output/health/adm0"
     add_pks: True
 
-    # rename:
-      # Survey: year
-
 tables:
   conditions:
     pk: ["year", "geo", "condition", "severity"]
