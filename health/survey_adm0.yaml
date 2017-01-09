@@ -103,8 +103,8 @@ tables:
       - type: drop
         column: [Survey, adm0_name, adm0_code, Country, Characteristic]
 
-  conditions_urban_rural:
-    pk: ["year", "geo", "condition", "severity", "rural"]
+  conditions_residence:
+    pk: ["year", "geo", "condition", "severity", "residence"]
     transform:
       - type: drop
         column: ["Median duration of any breastfeeding"]
@@ -121,7 +121,7 @@ tables:
       - type: plugin
         func: data_africa.plugins.dhs.set_condition
       - type: plugin
-        func: data_africa.plugins.dhs.set_urban_ruran
+        func: data_africa.plugins.dhs.set_residence
       - type: plugin
         func: data_africa.plugins.dhs.convert_survey
       - type: join
