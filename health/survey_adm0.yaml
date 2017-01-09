@@ -1,0 +1,92 @@
+inherits: ['db.yaml']
+
+global:
+    use_schema: True
+    name: "health"
+    filetype: excel
+    sheetname: Indicator Data
+    web_paths:
+      - url: "https://drive.google.com/uc?export=download&id=0B0fngGlnqNt7UElwVlRjcTctN2c"
+        pattern: "adm0_attrs.csv"
+      - url: https://drive.google.com/uc?export=download&id=0B0fngGlnqNt7ckZ1XzM5NU9XcUk
+        pattern: "*"
+
+    source: "data/health/adm0.csv"
+    output: "data/output/health/adm0"
+    add_pks: True
+
+    # rename:
+      # Survey: year
+
+tables:
+  health_conditions:
+    pk: ["zzz"]
+    transform:
+      - type: drop
+        column: ["Median duration of any breastfeeding"]
+      - type: melt
+        id_vars: ["Survey", "Country", "Characteristic"]
+        var_name: condition
+        value_name: proportion_of_children
+      - type: filter
+        column: Characteristic
+        func: eq
+        value: Total
+      - type: drop
+        column: [Characteristic]
+      - type: set_val
+        column: severity
+        value: "severe"
+        where:
+          column: condition
+          func: str.contains
+          value: "severely"
+      - type: set_val
+        column: severity
+        value: "moderate"
+        where:
+          column: condition
+          func: ~str.contains
+          value: "severely"
+      - type: set_val
+        column: condition
+        value: "stunted"
+        where:
+          column: condition
+          func: str.contains
+          value: "stunted"
+      - type: set_val
+        column: condition
+        value: "wasted"
+        where:
+          column: condition
+          func: str.contains
+          value: "wasted"
+      - type: set_val
+        column: condition
+        value: "underweight"
+        where:
+          column: condition
+          func: str.contains
+          value: "underweight"
+      - type: plugin
+        func: data_africa.plugins.survey_year.convert
+      - type: join
+        source: "data/source/attrs/health/geo/adm0_attrs.csv"
+        settings:
+          usecols: ["adm0_name", "adm0_code"]
+        left_on: ["Country"]
+        right_on: ["adm0_name"]
+      - type: clone
+        source: adm0_code
+        column: geo
+      - type: zfill
+        column: geo
+        size: 5
+      - column: geo
+        type: concat_and_fill
+        prefix: "040AF"
+      - type: drop
+        column: [Survey, adm0_name, adm0_code, Country]
+      # Countries in Africa
+      # Only look at states (hv024)
