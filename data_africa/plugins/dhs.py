@@ -20,3 +20,8 @@ def set_gender(df, **kwargs):
     df.loc[df.Characteristic.str.contains("Male"), 'gender'] = 'male'
     df.loc[df.Characteristic.str.contains("Female"), 'gender'] = 'female'
     return df
+
+def set_urban_ruran(df, **kwargs):
+    df.loc[df.Characteristic.str.contains("Urban"), 'rural'] = 'urban'
+    df.loc[df.Characteristic.str.contains("Rural"), 'rural'] = 'rural'
+    return df
