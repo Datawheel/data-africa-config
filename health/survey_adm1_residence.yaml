@@ -1,0 +1,138 @@
+inherits: ['db.yaml']
+
+global:
+    use_schema: True
+    name: "health"
+    filetype: dta
+    encoding: !!null
+    web_paths:
+      - url: https://drive.google.com/uc?export=download&id=0B0fngGlnqNt7TThMRlVEQzBzRms
+        pattern: "*"
+    decimal: .
+    source: "data/health/residence.dta"
+    output: "data/output/health/residence"
+    add_pks: True
+    rename:
+      end_year: year
+      hv025: residence
+
+tables:
+  conditions_residence:
+    pk: ["year", "start_year", "dhs_geo", "condition", "severity", "residence"]
+    transform:
+      # Countries in Africa
+      - type: filter
+        column: country_code_iso
+        func: isin
+        value: [DZ, AO, SH, BJ, BW, BF, BI, CM, CV,
+                CF, TD, KM, CG, CD, DJ, EG, GQ, ER, ET,
+                GA, GM, GH, GN, GW, CI, KE,
+                LS, LR, LY, MG, MW, ML, MR, MU, YT, MA, MZ, NA,
+                NE, NG, ST, RE, RW, ST, SN, SC, SL, SO, ZA, SS, SH, SD, SZ,
+                TZ, TG, TN, UG, CD, ZM, TZ, ZW]
+      # Only look at states (hv024)
+      - type: filter
+        column: regvar
+        func: eq
+        value: hv024
+      - type: set_val
+        column: dhs_geo
+        value: 050HG
+      - type: zfill
+        column: regcode
+        size: 3
+      - type: concat
+        column: dhs_geo
+        column0: dhs_geo
+        column1: country_code_iso
+        column2: regcode
+      # subset of variables of interest
+      - type: keep
+        column: ["dhs_geo",
+                 "year", "start_year",
+               "ic_stunted_moderate",
+               "ic_stunted_moderate_f",
+               "ic_stunted_moderate_m",
+               "ic_stunted_low",
+               "ic_stunted_low_f",
+               "ic_stunted_low_m",
+               "ic_stunted_severe",
+               "ic_stunted_severe_f",
+               "ic_stunted_severe_m",
+                "ic_wasted_moderate",
+                "ic_wasted_moderate_f",
+                "ic_wasted_moderate_m",
+                "ic_wasted_low",
+                "ic_wasted_low_f",
+                "ic_wasted_low_m",
+                "ic_wasted_severe",
+                "ic_wasted_severe_f",
+                "ic_wasted_severe_m",
+                "ic_underweight_moderate",
+                "ic_underweight_moderate_f",
+                "ic_underweight_moderate_m",
+                "ic_underweight_low",
+                "ic_underweight_low_f",
+                "ic_underweight_low_m",
+                "ic_underweight_severe",
+                "ic_underweight_severe_f",
+                "ic_underweight_severe_m"]
+      - type: melt
+        id_vars: ["year", "start_year", "dhs_geo"]
+        var_name: condition
+        value_name: proportion_of_children
+      - type: set_val
+        column: gender
+        value: "male"
+        where:
+          column: condition
+          func: str.endswith
+          value: "_m"
+      - type: set_val
+        column: gender
+        value: "female"
+        where:
+          column: condition
+          func: str.endswith
+          value: "_f"
+      - type: set_val
+        column: gender
+        value: "overall"
+        where:
+          column: gender
+          func: isnull
+      - type: replace
+        column: condition
+        target: "ic_"
+        value: ""
+      - type: set_val
+        column: severity
+        value: "low"
+        where:
+          column: condition
+          func: str.contains
+          value: "_low"
+      - type: set_val
+        column: severity
+        value: "moderate"
+        where:
+          column: condition
+          func: str.contains
+          value: "_moderate"
+      - type: set_val
+        column: severity
+        value: "severe"
+        where:
+          column: condition
+          func: str.contains
+          value: "_severe"
+      - type: replace
+        column: condition
+        target: "_(low|moderate|severe)_?(m|f)?"
+        value: ""
+      - type: filter
+        column: gender
+        func: ne
+        value: overall
+      - type: drop
+        column: gender

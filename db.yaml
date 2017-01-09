@@ -10,3 +10,5 @@ global:
         adm0_id: integer
         adm1_id: integer
         svyl1cd: integer
+        year: integer
+        start_year: integer
