@@ -17,7 +17,7 @@ global:
 
 tables:
   conditions:
-    pk: ["year", "geo", "condition", "severity"]
+    pk: ["year", "dhs_geo", "condition", "severity"]
     transform:
       - type: drop
         column: ["Median duration of any breastfeeding"]
@@ -56,7 +56,7 @@ tables:
         value: 100
 
   conditions_gender:
-    pk: ["year", "geo", "condition", "severity", "gender"]
+    pk: ["year", "dhs_geo", "condition", "severity", "gender"]
     transform:
       - type: drop
         column: ["Median duration of any breastfeeding"]
@@ -95,7 +95,7 @@ tables:
         column: [Survey, Country, ISO 3166-1 2 Letter Code, Common Name, Characteristic]
 
   conditions_residence:
-    pk: ["year", "geo", "condition", "severity", "residence"]
+    pk: ["year", "dhs_geo", "condition", "severity", "residence"]
     transform:
       - type: drop
         column: ["Median duration of any breastfeeding"]
