@@ -17,9 +17,10 @@ global:
       gini_country: gini
       ISO3: iso3
       svyL1Cd: svyl1cd
-
+      hc_poor1: hc_ppp1
+      hc_poor2: hc_ppp2
 tables:
-  survey:
+  survey_overall:
     pk: ["year", "poverty_geo"]
 
     transform:
@@ -30,5 +31,22 @@ tables:
         type: concat
         column0: poverty_geo
         column1: iso3
-      - type: drop
-        column: ["iso3", "country", "row_id"]
+      - type: keep
+        column: ["year", "poverty_geo", "gini"]
+
+  survey_ygl:
+    pk: ["year", "poverty_geo", "poverty_level"]
+
+    transform:
+      - type: set_val
+        column: poverty_geo
+        value: 040PG
+      - column: poverty_geo
+        type: concat
+        column0: poverty_geo
+        column1: iso3
+      - type: keep
+        column: ["year", "poverty_geo", "sevpov_ppp1", "sevpov_ppp2", "povgap_ppp1", "povgap_ppp2", "hc_ppp1", "hc_ppp2"]
+      - type: plugin
+        func: data_africa.plugins.poverty.tidy
+        index: ["year", "poverty_geo"]

@@ -9,8 +9,6 @@ global:
     encoding: !!null
 
     web_paths:
-      - url: https://drive.google.com/uc?export=download&id=0B0fngGlnqNt7TWs0cG1wMjJRLUk
-        pattern: pov_geo_xwalk.csv
       - url: https://drive.google.com/uc?export=download&id=0B0fngGlnqNt7Qm0zNUs5VjJUbDg
         pattern: "*"
 
@@ -20,6 +18,8 @@ global:
     rename:
       ISO3: iso3
       svyL1Cd: svyl1cd
+      hc_poor1: hc_ppp1
+      hc_poor2: hc_ppp2
 
 tables:
   survey:
@@ -38,5 +38,27 @@ tables:
         column0: poverty_geo
         column1: iso3
         column2: svyl1cd
-      - type: drop
-        column: ["svyl1cd", "iso3", "country", "row_id", "svyL1Nm"]
+      - type: keep
+        column: ["year", "poverty_geo", "gini"]
+
+  survey_ygl:
+    pk: ["year", "poverty_geo", "poverty_level"]
+
+    transform:
+      - type: zfill
+        column: svyl1cd
+        size: 5
+      - type: set_val
+        column: poverty_geo
+        value: 050PG
+        pos: 1
+      - column: poverty_geo
+        type: concat
+        column0: poverty_geo
+        column1: iso3
+        column2: svyl1cd
+      - type: keep
+        column: ["year", "poverty_geo", "sevpov_ppp1", "sevpov_ppp2", "povgap_ppp1", "povgap_ppp2", "hc_ppp1", "hc_ppp2"]
+      - type: plugin
+        func: data_africa.plugins.poverty.tidy
+        index: ["year", "poverty_geo"]
