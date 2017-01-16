@@ -1,5 +1,6 @@
 shp2pgsql dissolved_l1_v2.shp attrs.pov_svy_geo > pov_survey_geo.sql
 shp2pgsql cell5m.shp attrs.cell5m_geo > cell5m_geo.sql
+shp2pgsql dhsMap_2016.10.12.shp spatial.dhs_geo > dhs_geo.sql
 
 # # Fix ring self-intersections
 # UPDATE spatial.cell5m_geo
