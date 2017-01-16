@@ -1,0 +1,59 @@
+inherits: ['db.yaml']
+
+global:
+    seperator: ","
+    use_schema: True
+    name: "poverty"
+    filetype: dta
+    encoding: !!null
+    web_paths:
+      - url: https://drive.google.com/uc?export=download&id=0B0fngGlnqNt7WWFPbUMwM1g4ZEE
+        pattern: "*"
+    decimal: .
+    source : "data/poverty/residence/adm0.dta"
+    output : "data/output/poverty/residence/adm0"
+    rename:
+      ISO3: iso3
+      gini_country: gini
+      rural: residence
+      hc_poor1: hc_ppp1
+      hc_poor2: hc_ppp2
+
+tables:
+  survey_ygr:
+    pk: ["year", "poverty_geo", "residence"]
+
+    transform:
+      - type: cast
+        column: year
+        as: int
+      - type: set_val
+        column: poverty_geo
+        value: 040PG
+        pos: 1
+      - column: poverty_geo
+        type: concat
+        column0: poverty_geo
+        column1: iso3
+      - type: keep
+        column: ["year", "poverty_geo", "residence", "gini"]
+
+  survey_ygrl:
+      pk: ["year", "poverty_geo", "residence", "poverty_level"]
+      transform:
+        - type: cast
+          column: year
+          as: int
+        - type: set_val
+          column: poverty_geo
+          value: 040PG
+          pos: 1
+        - column: poverty_geo
+          type: concat
+          column0: poverty_geo
+          column1: iso3
+        - type: keep
+          column: ["year", "poverty_geo", "residence", "sevpov_ppp1", "sevpov_ppp2", "povgap_ppp1", "povgap_ppp2", "hc_ppp1", "hc_ppp2"]
+        - type: plugin
+          func: data_africa.plugins.poverty.tidy
+          index: ["year", "poverty_geo", "residence"]
