@@ -20,7 +20,7 @@ global:
       hc_poor1: hc_ppp1
       hc_poor2: hc_ppp2
 tables:
-  survey_overall:
+  survey_yg:
     pk: ["year", "poverty_geo"]
 
     transform:
