@@ -9,22 +9,22 @@ global:
           values:
             - acof
             - bana
-            - bapl
+            # - bapl
             - barl
             - bean
             - cass
-            - cere
+            # - cere
             - chic
             - cnut
             - coco
             - coff
             - cott
             - cowp
-            - frui
+            # - frui
             - grou
             - lent
             - maiz
-            - mill
+            # - mill
             - ocer
             - ofib
             - oilp
@@ -35,7 +35,7 @@ global:
             - plnt
             - pmil
             - pota
-            - puls
+            # - puls
             - rape
             - rcof
             - rest
@@ -54,5 +54,3 @@ global:
             - vege
             - whea
             - yams
-
-    add_pks: True

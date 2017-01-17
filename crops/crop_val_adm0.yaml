@@ -1,4 +1,4 @@
-inherits: ["db.yaml", "crops/crop_val_base.yaml"]
+inherits: ["db.yaml", "crops/base.yaml"]
 
 global:
     add_pks: True
@@ -13,12 +13,12 @@ global:
         method: POST
         headers:
           Content-Type: application/json
-        payload: "{'var' : ['<crop>_v'], 'by' : ['ADM0_NAME']}"
+        payload: "{'var' : ['<crop>_v', '<crop>_i_v', '<crop>_r_v'], 'by' : ['ADM0_NAME']}"
 
 
 tables:
-    value_production:
-        pk: ["adm0"]
+    value:
+        pk: ["year", "geo", "crop"]
 
         transform:
           - type: agg
@@ -26,25 +26,60 @@ tables:
             pk: ["ADM0_NAME"]
           - type: drop
             column: ["crop"]
-          - type: melt
-            id_vars: ["ADM0_NAME"]
-            var_name: crop
-            value_name: value_of_production
-          - type: replace
-            column: crop
-            target: "_r_v"
-            value: ""
-          - type: replace
-            column: crop
-            target: "_i_v"
-            value: ""
-          - type: replace
-            column: crop
-            target: "_v"
-            value: ""
+
           - type: set_val
             column: year
             value: 2005
+
+          - type: plugin
+            func: data_africa.plugins.cell5m.crop_format
+            index: ["year", "ADM0_NAME"]
+            mode: v
+
+          - type: join
+            source: "data/source/attrs/adm0_attrs.csv"
+            settings:
+              filetype: csv
+              usecols: ["adm0_code", "adm0_name"]
+            left_on: ["ADM0_NAME"]
+            right_on: ["adm0_name"]
+          - type: drop
+            column: ["adm0_name", "ADM0_NAME"]
+          - type: rename
+            column: adm0_code
+            value: geo
+          - type: zfill
+            column: geo
+            size: 5
+          - column: geo
+            type: concat_and_fill
+            prefix: "040AF"
+          - type: filter
+            column: water_supply
+            func: eq
+            value: overall
+          - type: drop
+            column: water_supply
+
+    value_by_supply:
+        pk: ["year", "geo", "crop", "water_supply"]
+
+        transform:
+          - type: agg
+            agg: "sum"
+            pk: ["ADM0_NAME"]
+          - type: drop
+            column: ["crop"]
+
+          - type: set_val
+            column: year
+            value: 2005
+
+          - type: plugin
+            func: data_africa.plugins.cell5m.crop_format
+            index: ["year", "ADM0_NAME"]
+            mode: v
+
           - type: join
             source: "data/source/attrs/adm0_attrs.csv"
             settings:

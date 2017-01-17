@@ -1,4 +1,4 @@
-inherits: ["db.yaml", "crops/crop_val_base.yaml"]
+inherits: ["db.yaml", "crops/base.yaml"]
 
 global:
     add_pks: True
@@ -17,8 +17,8 @@ global:
 
 
 tables:
-    value_production:
-        pk: ["geo"]
+    value:
+        pk: ["year", "geo", "crop"]
 
         transform:
           - type: agg
@@ -26,25 +26,13 @@ tables:
             pk: ["ADM0_NAME", "ADM1_NAME_ALT"]
           - type: drop
             column: ["crop"]
-          - type: melt
-            id_vars: ["ADM0_NAME", "ADM1_NAME_ALT"]
-            var_name: crop
-            value_name: value_of_production
           - type: set_val
             column: year
             value: 2005
-          - type: replace
-            column: crop
-            target: "_r_v"
-            value: ""
-          - type: replace
-            column: crop
-            target: "_i_v"
-            value: ""
-          - type: replace
-            column: crop
-            target: "_v"
-            value: ""
+          - type: plugin
+            func: data_africa.plugins.cell5m.crop_format
+            index: ["year", "ADM0_NAME", "ADM1_NAME_ALT"]
+            mode: v
           - type: join
             source: "data/source/attrs/adm1_attrs.csv"
             settings:
@@ -73,3 +61,57 @@ tables:
             column1: adm1
           - type: drop
             column: ["adm0", "adm1"]
+          - type: filter
+            column: water_supply
+            func: eq
+            value: overall
+          - type: drop
+            column: water_supply
+    value:
+        pk: ["year", "geo", "crop", "water_supply"]
+
+        transform:
+          - type: agg
+            agg: "sum"
+            pk: ["ADM0_NAME", "ADM1_NAME_ALT"]
+          - type: drop
+            column: ["crop"]
+          - type: set_val
+            column: year
+            value: 2005
+          - type: plugin
+            func: data_africa.plugins.cell5m.crop_format
+            index: ["year", "ADM0_NAME", "ADM1_NAME_ALT"]
+            mode: v
+          - type: join
+            source: "data/source/attrs/adm1_attrs.csv"
+            settings:
+              filetype: csv
+              usecols: ["adm0_code", "adm0_name", "adm1_code", "adm1_name"]
+            left_on: ["ADM0_NAME", "ADM1_NAME_ALT"]
+            right_on: ["adm0_name", "adm1_name"]
+          - type: drop
+            column: ["ADM0_NAME", "ADM1_NAME_ALT", "adm0_name", "adm1_name"]
+          - type: rename
+            value:
+              adm0_code: adm0
+              adm1_code: adm1
+          - type: zfill
+            column: adm0
+            size: 5
+          - type: zfill
+            column: adm1
+            size: 5
+          - column: adm0
+            type: concat_and_fill
+            prefix: "050AF"
+          - column: geo
+            type: concat
+            column0: adm0
+            column1: adm1
+          - type: drop
+            column: ["adm0", "adm1"]
+          - type: filter
+            column: water_supply
+            func: ne
+            value: overall
