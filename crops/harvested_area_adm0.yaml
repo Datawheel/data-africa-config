@@ -16,8 +16,8 @@ global:
 
 
 tables:
-    harvested_area:
-        pk: ["geo"]
+    area:
+        pk: ["year", "geo", "crop"]
 
         transform:
           - type: agg
@@ -25,50 +25,14 @@ tables:
             pk: ["ADM0_NAME"]
           - type: drop
             column: ["crop"]
-          - type: melt
-            id_vars: ["ADM0_NAME"]
-            var_name: crop
-            value_name: harvested_area
+          # make year 2005
           - type: set_val
             column: year
             value: 2005
-          - type: set_val
-            column: water_supply
-            value: "rainfed"
-            where:
-              column: crop
-              func: str.endswith
-              value: "_r_h"
-          - type: set_val
-            column: water_supply
-            value: "irrigated"
-            where:
-              column: crop
-              func: str.endswith
-              value: "_i_h"
-          - type: set_val
-            column: water_supply
-            value: "overall"
-            where:
-              and:
-                - column: crop
-                  func: ~str.endswith
-                  value: "_i_h"
-                - column: crop
-                  func: ~str.endswith
-                  value: "_r_h"
-          - type: replace
-            column: crop
-            target: "_r_h"
-            value: ""
-          - type: replace
-            column: crop
-            target: "_i_h"
-            value: ""
-          - type: replace
-            column: crop
-            target: "_h"
-            value: ""
+          - type: plugin
+            func: data_africa.plugins.cell5m.crop_format
+            index: ["year", "ADM0_NAME"]
+          # produce geo code
           - type: join
             source: "data/source/attrs/adm0_attrs.csv"
             settings:
@@ -87,3 +51,49 @@ tables:
           - column: geo
             type: concat_and_fill
             prefix: "040AF"
+          - type: filter
+            column: water_supply
+            func: eq
+            value: overall
+          - type: drop
+            column: water_supply
+
+    area_by_supply:
+        pk: ["year", "geo", "crop", "water_supply"]
+
+        transform:
+          - type: agg
+            agg: "sum"
+            pk: ["ADM0_NAME"]
+          - type: drop
+            column: ["crop"]
+          # make year 2005
+          - type: set_val
+            column: year
+            value: 2005
+          - type: plugin
+            func: data_africa.plugins.cell5m.crop_format
+            index: ["year", "ADM0_NAME"]
+          # produce geo code
+          - type: join
+            source: "data/source/attrs/adm0_attrs.csv"
+            settings:
+              filetype: csv
+              usecols: ["adm0_code", "adm0_name"]
+            left_on: ["ADM0_NAME"]
+            right_on: ["adm0_name"]
+          - type: drop
+            column: ["ADM0_NAME", "adm0_name"]
+          - type: rename
+            column: adm0_code
+            value: geo
+          - type: zfill
+            column: geo
+            size: 5
+          - column: geo
+            type: concat_and_fill
+            prefix: "040AF"
+          - type: filter
+            column: water_supply
+            func: ne
+            value: overall
