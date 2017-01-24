@@ -19,6 +19,9 @@ global:
       svyL1Cd: svyl1cd
       hc_poor1: hc_ppp1
       hc_poor2: hc_ppp2
+      num_poor1: num_ppp1
+      num_poor2: num_ppp2
+
 tables:
   survey_yg:
     pk: ["year", "poverty_geo"]
@@ -32,7 +35,7 @@ tables:
         column0: poverty_geo
         column1: iso3
       - type: keep
-        column: ["year", "poverty_geo", "gini"]
+        column: ["year", "poverty_geo", "gini", "totpop"]
 
   survey_ygl:
     pk: ["year", "poverty_geo", "poverty_level"]
@@ -46,7 +49,7 @@ tables:
         column0: poverty_geo
         column1: iso3
       - type: keep
-        column: ["year", "poverty_geo", "sevpov_ppp1", "sevpov_ppp2", "povgap_ppp1", "povgap_ppp2", "hc_ppp1", "hc_ppp2"]
+        column: ["year", "poverty_geo", "sevpov_ppp1", "sevpov_ppp2", "povgap_ppp1", "povgap_ppp2", "hc_ppp1", "hc_ppp2", "num_ppp1", "num_ppp2"]
       - type: plugin
         func: data_africa.plugins.poverty.tidy
         index: ["year", "poverty_geo"]

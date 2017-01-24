@@ -10,6 +10,7 @@ def tidy(df, **kwargs):
     df.loc[df.variable.str.startswith('povgap_'), 'val_kind'] = 'povgap'
     df.loc[df.variable.str.startswith('hc_'), 'val_kind'] = 'hc'
     df.loc[df.variable.str.startswith('sevpov_'), 'val_kind'] = 'sevpov'
+    df.loc[df.variable.str.startswith('num_'), 'val_kind'] = 'num'
 
     df = df.pivot_table(index=idx + ["poverty_level"],
                         columns=["val_kind"],
