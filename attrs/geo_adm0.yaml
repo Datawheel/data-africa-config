@@ -5,11 +5,10 @@ global:
     use_schema: True
     name: "attrs"
     filetype: csv
-
     import_to_db: True
 
     web_paths:
-      - url: "https://drive.google.com/uc?export=download&id=0B0fngGlnqNt7Rm0wcGdXN2YybTA"
+      - url: "https://drive.google.com/uc?export=download&id=0B0fngGlnqNt7TFNGUzNnRjVIdkU"
         pattern: "adm0_iso2.csv"
       - url: "http://hcapi.harvestchoice.org/ocpu/library/hcapi3/R/hcapi/json"
         pattern: "adm0_iso3.json"
@@ -27,8 +26,8 @@ global:
       adm0_code: adm0_id
 
 tables:
-  geo:
-    pk: ["id", "name"]
+  geo_v2:
+    pk: ["id", "name", "iso3"]
 
     transform:
       - type: join
@@ -67,3 +66,5 @@ tables:
       - type: rename
         column: ISO 3166-1 2 Letter Code
         value: iso2
+      - type: plugin
+        func: data_africa.plugins.cell5m.adm0_url_name

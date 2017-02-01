@@ -1,5 +1,15 @@
 import pandas as pd
 
+def adm0_url_name(df, **kwargs):
+    df["url_name"] = df["name"].str.lower()
+    return df
+
+def adm1_url_name(df, **kwargs):
+    df["url_name"] = df["name"].str.lower() + "-" + df["iso3"].str.lower()
+    df.loc[df.name == 'Administrative unit not available', 'url_name'] = df.id
+    return df
+
+
 def crop_format(df, **kwargs):
     index = kwargs.get("index")
     mode = kwargs.get("mode", "h")
