@@ -13,7 +13,7 @@ global:
         method: POST
         headers:
           Content-Type: application/json
-        payload: "{'var' : ['<crop>_v'], 'by' : ['ADM0_NAME', 'ADM1_NAME_ALT']}"
+        payload: "{'var' : ['<crop>_v', '<crop>_i_v', '<crop>_r_v'], 'by' : ['ADM0_NAME', 'ADM1_NAME_ALT']}"
 
 
 tables:
@@ -67,7 +67,8 @@ tables:
             value: overall
           - type: drop
             column: water_supply
-    value:
+
+    value_by_supply:
         pk: ["year", "geo", "crop", "water_supply"]
 
         transform:
