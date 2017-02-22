@@ -29,8 +29,9 @@ tables:
         func: data_africa.plugins.dhs.start_year
         survey: survey
       - type: agg
-        pk: ["name", "start_year"]
+        pk: ["name"]
         agg:
+          start_year: min
           survey: nunique
       - type: join
         source: "data/source/attrs/health/dhs_geo/adm0_iso2.csv"
@@ -47,7 +48,6 @@ tables:
       - column: id
         type: concat_and_fill
         prefix: "040HG"
-        postfix: "[start_year]"
       - type: keep
         column: ["id", "name", "iso2", "start_year"]
       - type: set_val
