@@ -13,3 +13,4 @@ global:
         svyl1cd: integer
         year: integer
         start_year: integer
+        regcode: text

@@ -1,8 +1,14 @@
+def start_year(df, **kwargs):
+    svy = 'Survey' if not 'survey' in kwargs else kwargs['survey']
+    df['start_year'] = df[svy].astype(str).str.slice(0, 4)
+    return df
+
 def convert_survey(df, **kwargs):
-    df.Survey = df.Survey.str.replace(" DHS", "")
-    df['start_year'] = df.Survey.str.split("-").apply(lambda x: x[0])
-    df.loc[df.Survey.str.contains("-"), 'year'] = df.loc[df.Survey.str.contains("-"), 'Survey'].str.split("-").apply(lambda x: x[0][:2] + x[1])
-    df.loc[~df.Survey.str.contains("-"), 'year'] = df.start_year
+    svy = 'Survey' if not 'survey' in kwargs else kwargs['survey']
+    df[svy] = df[svy].str.replace(" DHS", "")
+    df['start_year'] = df[svy].str.split("-").apply(lambda x: x[0])
+    df.loc[df[svy].str.contains("-"), 'year'] = df.loc[df[svy].str.contains("-"), svy].str.split("-").apply(lambda x: x[0][:2] + x[1])
+    df.loc[~df[svy].str.contains("-"), 'year'] = df.start_year
     return df
 
 def set_severity(df, **kwargs):
