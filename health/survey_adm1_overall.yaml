@@ -45,6 +45,7 @@ tables:
         column0: dhs_geo
         column1: country_code_iso
         column2: regcode
+        column3: start_year
       # subset of variables of interest
       - type: keep
         column: ["dhs_geo",
@@ -149,6 +150,7 @@ tables:
         column0: dhs_geo
         column1: country_code_iso
         column2: regcode
+        column3: start_year
       # subset of variables of interest
       - type: keep
         column: ["dhs_geo",
