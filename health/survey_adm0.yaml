@@ -6,13 +6,13 @@ global:
     filetype: excel
     sheetname: Indicator Data
     web_paths:
-      - url: "https://drive.google.com/uc?export=download&id=0B0fngGlnqNt7Rm0wcGdXN2YybTA"
+      - url: "https://drive.google.com/uc?export=download&id=0B0fngGlnqNt7dFBiN2FSMTU2RDQ"
         pattern: "adm0_iso2.csv"
       - url: https://drive.google.com/uc?export=download&id=0B0fngGlnqNt7ckZ1XzM5NU9XcUk
         pattern: "*"
 
-    source: "data/health/adm0.csv"
-    output: "data/output/health/adm0"
+    source: "data/dhs_health/adm0.csv"
+    output: "data/output/dhs_health/adm0"
     add_pks: True
 
 tables:
@@ -38,7 +38,7 @@ tables:
       - type: plugin
         func: data_africa.plugins.dhs.convert_survey
       - type: join
-        source: "data/source/attrs/health/geo/adm0_iso2.csv"
+        source: "data/source/attrs/dhs_health/geo/adm0_iso2.csv"
         settings:
           usecols: ["Common Name", "ISO 3166-1 2 Letter Code"]
         left_on: ["Country"]
