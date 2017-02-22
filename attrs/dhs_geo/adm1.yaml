@@ -1,0 +1,66 @@
+inherits: ['db.yaml']
+
+global:
+    use_schema: True
+    name: "attrs"
+    filetype: dta
+    encoding: !!null
+    web_paths:
+      - url: https://drive.google.com/uc?export=download&id=0B0fngGlnqNt7UzhJaDRXa1IwNEk
+        pattern: "*"
+    decimal: .
+    source: "data/attrs/dhs_adm1/overall.dta"
+    output: "data/output/attrs/dhs_adm1/overall"
+    add_pks: True
+    rename:
+      end_year: year
+      regname: name
+      country_code_iso: iso2
+    type:
+      start_year: str
+
+tables:
+  dhs_geo:
+    pk: [regcode, regvar]
+    transform:
+      # Countries in Africa
+      - type: filter
+        column: iso2
+        func: isin
+        value: [DZ, AO, SH, BJ, BW, BF, BI, CM, CV,
+                CF, TD, KM, CG, CD, DJ, EG, GQ, ER, ET,
+                GA, GM, GH, GN, GW, CI, KE,
+                LS, LR, LY, MG, MW, ML, MR, MU, YT, MA, MZ, NA,
+                NE, NG, ST, RE, RW, ST, SN, SC, SL, SO, ZA, SS, SH, SD, SZ,
+                TZ, TG, TN, UG, CD, ZM, TZ, ZW]
+      - type: keep
+        column: ["iso2", "regcode", "regvar", "start_year", "name"]
+      - type: filter
+        column: regvar
+        func: eq
+        value: hv024
+      - type: set_val
+        column: count
+        value: 1
+      - type: set_val
+        column: id
+        value: 050HG
+      - type: zfill
+        column: regcode
+        size: 3
+      - type: concat
+        column: id
+        column0: id
+        column1: iso2
+        column2: regcode
+      - type: concat
+        column: id
+        column0: id
+        column1: start_year
+      - type: title
+        column: name
+      - type: keep
+        column: ["id", "name", "iso2", "start_year", "regcode"]
+      - type: set_val
+        column: "level"
+        value: "adm1"

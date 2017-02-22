@@ -1,0 +1,58 @@
+inherits: ['db.yaml']
+
+global:
+    use_schema: True
+    name: "attrs"
+    filetype: excel
+    sheetname: Indicator Data
+    web_paths:
+      - url: "https://drive.google.com/uc?export=download&id=0B0fngGlnqNt7dFBiN2FSMTU2RDQ"
+        pattern: "adm0_iso2.csv"
+      - url: "https://drive.google.com/uc?export=download&id=0B0fngGlnqNt7ckZ1XzM5NU9XcUk"
+        pattern: "*"
+
+    source: "data/health/adm0.csv"
+    output: "data/output/health/adm0"
+    add_pks: True
+    rename:
+      Country: name
+      Survey: survey
+    type:
+      survey: str
+tables:
+  dhs_geo:
+    pk: ["id", "name"]
+    transform:
+      - type: keep
+        column: ["survey", "name"]
+      - type: plugin
+        func: data_africa.plugins.dhs.start_year
+        survey: survey
+      - type: agg
+        pk: ["name", "start_year"]
+        agg:
+          survey: nunique
+      - type: join
+        source: "data/source/attrs/health/dhs_geo/adm0_iso2.csv"
+        settings:
+          filetype: csv
+        rename:
+          "Common Name": "name"
+          "ISO 3166-1 2 Letter Code": "iso2"
+        left_on: ["name"]
+        right_on: ["name"]
+      - type: clone
+        column: id
+        source: iso2
+      - column: id
+        type: concat_and_fill
+        prefix: "040HG"
+        postfix: "[start_year]"
+      - type: keep
+        column: ["id", "name", "iso2", "start_year"]
+      - type: set_val
+        column: "level"
+        value: "adm0"
+      - type: set_val
+        column: "regcode"
+        value: ""
