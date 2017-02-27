@@ -18,6 +18,7 @@ def tidy(df, **kwargs):
     return df.reset_index()
 
 def manually_fix_geo_ids(df, **kwargs):
+    pov_id = 'poverty_geo' if not 'id' in kwargs else kwargs['id']
     rules = [
         {"year": 2003, "iso3": "NGA", "region": False},
         {"year": 2012, "iso3": "NGA", "region": True},
@@ -34,12 +35,15 @@ def manually_fix_geo_ids(df, **kwargs):
         {"year": 2005, "iso3": "UGA", "region": True},
         {"year": 2009, "iso3": "UGA", "region": True},
         {"year": 2012, "iso3": "UGA", "region": True},
-        {"year": 2013, "iso3": "UGA", "region": True}
+        {"year": 2013, "iso3": "UGA", "region": True},
+
+        {"year": 1998, "iso3": "BDI", "region": None},
+        {"year": 2006, "iso3": "BDI", "region": None}
 
     ]
 
     for rule in rules:
         year, iso3, region = rule["year"], rule["iso3"], rule["region"]
-        df.loc[(df.year == year) & (df.iso3 == iso3), 'poverty_geo'] = df.poverty_geo + df.year.astype(str)
+        df.loc[(df.year == year) & (df.iso3 == iso3), pov_id] = df[pov_id] + df.year.astype(str)
 
     return df
