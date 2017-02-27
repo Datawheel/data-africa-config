@@ -223,3 +223,7 @@ tables:
         column: gender
         func: ne
         value: overall
+      - type: filter
+        column: proportion_of_children
+        func: ge
+        value: 0

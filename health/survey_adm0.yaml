@@ -132,3 +132,7 @@ tables:
         value: 100
       - type: drop
         column: [Survey, Country, ISO 3166-1 2 Letter Code, Common Name, Characteristic]
+      - type: filter
+        column: proportion_of_children
+        func: ge
+        value: 0
