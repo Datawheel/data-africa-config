@@ -18,6 +18,7 @@ global:
       name: country_name
       svyL1Nm: good_name
       svyL1Cd: svyl1cd
+      country: poverty_geo_parent_name
 
 tables:
   poverty_geo:
@@ -58,6 +59,11 @@ tables:
         pk: ["id", "iso3", "svyl1cd"]
         agg:
           name: min
+          poverty_geo_parent_name: min
       - type: set_val
         column: level
         value: "adm1"
+      - type: replace
+        column: poverty_geo_parent_name
+        target: "_"
+        value: " "
