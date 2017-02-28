@@ -31,3 +31,18 @@ def set_residence(df, **kwargs):
     df.loc[df.Characteristic.str.contains("Urban"), 'residence'] = 'urban'
     df.loc[df.Characteristic.str.contains("Rural"), 'residence'] = 'rural'
     return df
+
+def fix_moderate_numbers_adm0(df, **kwargs):
+    severe_cols = [col for col in df.columns if "severely" in col.lower()]
+    for sev_col in severe_cols:
+        moderate = sev_col.replace(" severely", "")
+        # raise Exception(moderate, moderate in df.columns)
+        df[moderate] = df[moderate] - df[sev_col]
+    return df
+
+def fix_moderate_numbers_adm1(df, **kwargs):
+    moderate_cols = [col for col in df.columns if "moderate" in col.lower()]
+    for moderate in moderate_cols:
+        severe = moderate.replace("moderate", "severe")
+        df[moderate] = df[moderate] - df[severe]
+    return df

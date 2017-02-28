@@ -35,6 +35,8 @@ tables:
         column: regvar
         func: eq
         value: hv024
+      - type: plugin
+        func: data_africa.plugins.dhs.fix_moderate_numbers_adm1
       - type: set_val
         column: dhs_geo
         value: 050HG

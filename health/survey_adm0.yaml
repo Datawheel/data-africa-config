@@ -21,6 +21,8 @@ tables:
     transform:
       - type: drop
         column: ["Median duration of any breastfeeding"]
+      - type: plugin
+        func: data_africa.plugins.dhs.fix_moderate_numbers_adm0
       - type: melt
         id_vars: ["Survey", "Country", "Characteristic"]
         var_name: condition
@@ -54,12 +56,18 @@ tables:
       - type: div
         column: proportion_of_children
         value: 100
+      - type: filter
+        column: proportion_of_children
+        func: ge
+        value: 0
 
   conditions_gender:
     pk: ["year", "dhs_geo", "condition", "severity", "gender"]
     transform:
       - type: drop
         column: ["Median duration of any breastfeeding"]
+      - type: plugin
+        func: data_africa.plugins.dhs.fix_moderate_numbers_adm0
       - type: melt
         id_vars: ["Survey", "Country", "Characteristic"]
         var_name: condition
@@ -93,12 +101,18 @@ tables:
         value: 100
       - type: drop
         column: [Survey, Country, ISO 3166-1 2 Letter Code, Common Name, Characteristic]
+      - type: filter
+        column: proportion_of_children
+        func: ge
+        value: 0
 
   conditions_residence:
     pk: ["year", "dhs_geo", "condition", "severity", "residence"]
     transform:
       - type: drop
         column: ["Median duration of any breastfeeding"]
+      - type: plugin
+        func: data_africa.plugins.dhs.fix_moderate_numbers_adm0
       - type: melt
         id_vars: ["Survey", "Country", "Characteristic"]
         var_name: condition
