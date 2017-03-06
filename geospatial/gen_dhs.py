@@ -16,6 +16,7 @@ def fix_wrong_years(df):
     df.loc[(df.ISO == 'TZ') & (df.SVYYEAR == 2005), 'SVYYEAR'] = 2004
     df.loc[(df.ISO == 'BF') & (df.SVYYEAR == 1999), 'SVYYEAR'] = 1998
     df.loc[(df.ISO == 'SN') & (df.SVYYEAR == 1993), 'SVYYEAR'] = 1992
+    df.loc[(df.ISO == 'SN') & (df.SVYYEAR == 2011), 'SVYYEAR'] = 2010
     df.loc[(df.ISO == 'ZM') & (df.SVYYEAR == 2002), 'SVYYEAR'] = 2001
     return df
 
