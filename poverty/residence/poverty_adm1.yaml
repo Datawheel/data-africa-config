@@ -45,6 +45,8 @@ tables:
         column0: poverty_geo
         column1: iso3
         column2: svyl1cd
+      - type: plugin
+        func: data_africa.plugins.poverty.manually_fix_geo_ids
       - type: keep
         column: ["year", "poverty_geo", "residence", "gini", "totpop"]
 
@@ -70,6 +72,8 @@ tables:
         column0: poverty_geo
         column1: iso3
         column2: svyl1cd
+      - type: plugin
+        func: data_africa.plugins.poverty.manually_fix_geo_ids
       - type: keep
         column: ["year", "poverty_geo", "residence", "sevpov_ppp1", "sevpov_ppp2", "povgap_ppp1", "povgap_ppp2", "hc_ppp1", "hc_ppp2", "num_ppp1", "num_ppp2"]
       - type: plugin
